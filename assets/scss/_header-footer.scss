@@ -1,0 +1,292 @@
+// ============================================================
+// _header-footer.scss
+// 「住むなら埼玉」本体サイトのヘッダー・フッタースタイル
+// 元ソース: sumunara-saitama.pref.saitama.lg.jp
+// このファイルには直接コードを追記しないこと。
+// 変更が必要な場合は新規ファイルを作成して style.scss で @use してください。
+// ============================================================
+
+// ブレークポイント変数
+$bp-pc: 1101px;
+$bp-sp: 767px;
+
+// ============================================================
+// HEADER
+// ============================================================
+.header {
+  width: 100%;
+  background: radial-gradient(circle at left top, #529167 26%, #88b871 101%);
+  position: relative;
+  z-index: 3;
+
+  @media screen and (min-width: $bp-pc) {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.251);
+  }
+
+  @media screen and (max-width: $bp-pc - 1px) {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.header-two-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-inner {
+  padding: 22px 25px 22px 40px;
+  position: relative;
+
+  @media screen and (min-width: $bp-pc) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media screen and (max-width: $bp-pc - 1px) {
+    padding: 16px 20px;
+  }
+}
+
+// SNSアイコン一覧
+.list-sns {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  @media screen and (max-width: $bp-sp) {
+    gap: 30px;
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+// ロゴ
+.header-icon {
+  background-color: transparent;
+  border: none;
+
+  @media screen and (min-width: $bp-pc) {
+    position: absolute;
+    top: 50%;
+    left: 58%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media screen and (max-width: $bp-pc - 1px) {
+    width: 180px;
+  }
+
+  img {
+    height: auto;
+  }
+}
+
+// 移住相談・お問い合わせ
+.header-contact-wrap {
+  display: flex;
+
+  @media screen and (max-width: $bp-pc - 1px) {
+    width: 100%;
+  }
+}
+
+.header-contact-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+  padding: 12px 16px;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: opacity 0.2s;
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+    text-decoration: none;
+  }
+
+  // フォーカス表示（アクセシビリティ）
+  &:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: -3px;
+  }
+
+  img {
+    width: 28px;
+    height: auto;
+  }
+
+  .text {
+    margin: 0;
+  }
+
+  &.consultation {
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+
+  &.contact {
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+}
+
+// ============================================================
+// FOOTER
+// ============================================================
+.footer {
+  background: radial-gradient(circle at left top, #529167 26%, #88b871 101%);
+  color: #fff;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+
+    &:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 2px;
+    }
+  }
+}
+
+.footer-inner {
+  padding-top: 177px;
+  padding-bottom: 177px;
+
+  @media screen and (max-width: $bp-pc - 1px) {
+    padding-top: 42px;
+    padding-bottom: 34px;
+  }
+}
+
+// フッターカラム（リンク群）
+.footer-column {
+  display: flex;
+  gap: 6.4516129032%;
+  padding-bottom: 140px;
+
+  @media screen and (max-width: $bp-pc - 1px) {
+    flex-direction: column;
+    gap: 0;
+    padding-bottom: 50px;
+  }
+}
+
+.footer-column-item {
+  flex: 1;
+}
+
+.footer-column-banner {
+  max-width: 200px;
+  height: auto;
+}
+
+// フッターリンクリスト
+.list-footer-column {
+  margin: -28px 0 0;
+  padding: 0;
+  list-style-type: none;
+
+  > li {
+    padding: 25px 0;
+
+    &:not(:first-child) {
+      border-top: 1px solid #bbe1b4;
+    }
+
+    > a {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+  }
+}
+
+.list-footer-column-category {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.list-footer-column-inner {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style-type: none;
+
+  li {
+    line-height: 1.6;
+    padding: 4px 0;
+  }
+
+  a {
+    font-size: 1.4rem;
+  }
+}
+
+// 担当部署情報
+.footer-department-name {
+  font-weight: bold;
+  margin: 30px 0 10px;
+  font-size: 1.6rem;
+}
+
+.footer-department-description {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+// フッター下部リンク（アクセシビリティ等）
+.list-footer-link {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+
+  @media screen and (max-width: $bp-pc - 1px) {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  @media screen and (min-width: $bp-pc) {
+    li:not(:first-child) {
+      border-left: 1px solid #fff;
+    }
+  }
+
+  a {
+    display: block;
+    padding: 7px 30px;
+    font-size: 1.4rem;
+
+    @media screen and (max-width: $bp-pc - 1px) {
+      padding: 8px 16px;
+    }
+  }
+}
+
+// コピーライト
+.footer .copyright {
+  text-align: center;
+  font-size: 1.3rem;
+  margin: 30px auto 0;
+
+  @media screen and (max-width: $bp-pc - 1px) {
+    font-size: 1.2rem;
+    margin-top: 20px;
+  }
+}
