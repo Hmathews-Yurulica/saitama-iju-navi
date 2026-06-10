@@ -12,9 +12,10 @@ Thumbs.db
 !.vscode/extensions.json
 .idea/
 
-# SCSS コンパイル用キャッシュ
+# SCSS コンパイル用キャッシュ・生成物
 .sass-cache/
 *.css.map
+assets/css/style.css
 
 # node（ツール類を使う場合）
 node_modules/
