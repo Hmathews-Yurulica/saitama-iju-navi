@@ -1,0 +1,202 @@
+// ============================================================
+// 住むなら埼玉 — メインスタイルシート
+// ※既存ファイルに直接追記せず、新規ファイルを作成して @use で読み込む
+// ============================================================
+
+// 変数
+// ------------------------------------------------------------
+$color-primary: #2e7d32;
+$color-text: #222222;
+$color-bg: #ffffff;
+$font-base: 'Noto Sans JP', sans-serif;
+$inner-width: 1080px;
+
+// ベース
+// ------------------------------------------------------------
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; // 1rem = 10px
+}
+
+body {
+  font-family: $font-base;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: $color-text;
+  background-color: $color-bg;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  // フォーカス表示（アクセシビリティ）
+  &:focus-visible {
+    outline: 3px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
+// 共通レイアウト
+// ------------------------------------------------------------
+.inner {
+  max-width: $inner-width;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+// ボタン
+// ------------------------------------------------------------
+.button {
+  display: inline-block;
+  padding: 14px 32px;
+  min-width: 200px;
+  min-height: 44px; // タッチターゲット 44px 以上
+  background-color: $color-primary;
+  color: #ffffff;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover,
+  &:focus {
+    opacity: 0.85;
+    text-decoration: none;
+  }
+}
+
+// ヘッダー
+// ------------------------------------------------------------
+.site-header {
+  position: sticky;
+  top: 0;
+  background-color: $color-bg;
+  border-bottom: 1px solid #e0e0e0;
+  z-index: 100;
+
+  .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 16px;
+  }
+}
+
+.site-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: $color-primary;
+}
+
+// グローバルナビ
+// ------------------------------------------------------------
+.gnav-list {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.gnav-item {
+  a {
+    font-size: 1.5rem;
+    padding-block: 8px;
+  }
+}
+
+// セクション共通
+// ------------------------------------------------------------
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.section-lead {
+  font-size: 1.6rem;
+  margin-bottom: 40px;
+}
+
+// ヒーロー
+// ------------------------------------------------------------
+.hero {
+  padding-block: 80px;
+  background-color: #f1f8e9;
+
+  .inner {
+    text-align: center;
+  }
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 24px;
+  color: $color-primary;
+}
+
+.hero-lead {
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+}
+
+// 移住支援セクション
+// ------------------------------------------------------------
+.support {
+  padding-block: 80px;
+}
+
+// チャットセクション
+// ------------------------------------------------------------
+.chat-section {
+  padding-block: 80px;
+  background-color: #f9f9f9;
+}
+
+.chatbot-area {
+  min-height: 200px;
+  border: 2px dashed #cccccc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888888;
+
+  &::after {
+    content: 'チャットボット実装予定';
+  }
+}
+
+// フッター
+// ------------------------------------------------------------
+.site-footer {
+  padding-block: 24px;
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.copyright {
+  font-size: 1.3rem;
+  text-align: center;
+}

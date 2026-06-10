@@ -1,0 +1,20 @@
+# 環境変数
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# エディタ
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# SCSS コンパイル用キャッシュ
+.sass-cache/
+*.css.map
+
+# node（ツール類を使う場合）
+node_modules/
