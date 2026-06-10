@@ -10,8 +10,19 @@
 ## [未リリース]
 
 ### 予定
-- ランディングページのデザイン実装
 - AIチャットボットの実装（Anthropic Claude）
+
+---
+
+## [0.3.0] - 2026-06-10
+
+### 変更
+- `style.scss` をフラットな CSS からネスト構造の SCSS にリファクタ（セレクタのネスト・`&` による疑似クラス・インライン `@media`）
+- `script.js` のヘッダースクロールリスナーを修正（`load resize` イベントごとにリスナーが積み重なるバグを解消、名前空間付きイベント `scroll.header` に変更し即時初期化）
+
+### 追加
+- `package.json` — Dart Sass CLI を使った `sass:build` / `sass:watch` npm スクリプト
+- `scripts/css-to-scss.js` — PostCSS ベースの CSS → SCSS 変換スクリプト
 
 ---
 

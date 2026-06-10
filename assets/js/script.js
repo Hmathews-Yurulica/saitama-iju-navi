@@ -68,25 +68,33 @@ jQuery(function ($) {
 	});
 
 	// ヘッダースクロールアクション（PCのみ：下スクロールで隠す）
-	$(window).on('load resize', function () {
-		let windowWidth = $(window).width();
-		const trigger   = 1100;
+	(function () {
+		const trigger   = 1101;
 		const $header   = $('#js-header-wrapper');
-		let scrollPosition = 0;
-		let lastPosition   = 0;
+		let lastScrollY = 0;
 
-		if (trigger <= windowWidth) {
-			$(window).on('scroll', function () {
-				scrollPosition = $(this).scrollTop();
-				if (scrollPosition > lastPosition) {
-					$header.addClass('is-fixed');
-				} else {
-					$header.removeClass('is-fixed');
-				}
-				lastPosition = scrollPosition;
-			});
+		function onHeaderScroll() {
+			const scrollY = $(window).scrollTop();
+			if (scrollY > lastScrollY) {
+				$header.addClass('is-fixed');
+			} else {
+				$header.removeClass('is-fixed');
+			}
+			lastScrollY = scrollY;
 		}
-	});
+
+		function updateHeaderScrollListener() {
+			if ($(window).width() >= trigger) {
+				$(window).on('scroll.header', onHeaderScroll);
+			} else {
+				$(window).off('scroll.header');
+				$header.removeClass('is-fixed');
+			}
+		}
+
+		$(window).on('resize', updateHeaderScrollListener);
+		updateHeaderScrollListener(); // run immediately on page load
+	}());
 
 	// カードレイアウト：ボタンがある li に下マージンを付与
 	$('.list-card li').has('.button-wrap').each(function () {

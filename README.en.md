@@ -11,7 +11,7 @@ A landing page with an AI-powered chatbot for people considering relocating to S
 | Technology | Details |
 |---|---|
 | **HTML** | HTML Living Standard |
-| **CSS** | SCSS (compiled via Live Sass Compiler) / sanitize.css |
+| **CSS** | SCSS (compiled via Dart Sass CLI) / sanitize.css |
 | **JS** | Vanilla JavaScript |
 | **AI** | Anthropic Claude (chatbot — coming soon) |
 
@@ -70,24 +70,29 @@ Install the **EditorConfig for VS Code** extension:
 
 - Plugin ID: `EditorConfig.EditorConfig`
 
-### 3. SCSS compilation
+### 3. Install dependencies
 
-Use the **Live Sass Compiler** extension. Add the following to `settings.json`:
-
-```json
-"liveSassCompile.settings.formats": [
-  {
-    "extensionName": ".css",
-    "savePath": "~/../css",
-    "savePathReplacementPairs": null
-  }
-],
-"liveSassCompile.settings.excludeList": [
-  "/wp-admin/**"
-]
+```bash
+npm install
 ```
 
-### 4. Preview in browser
+### 4. Compile SCSS
+
+**Watch mode (development):**
+
+```bash
+npm run sass:watch
+```
+
+**One-time build:**
+
+```bash
+npm run sass:build
+```
+
+> `assets/css/style.css` is generated automatically — do not edit it directly.
+
+### 5. Preview in browser
 
 Open `index.html` directly in your browser, or use the **Live Server** VSCode extension.
 
