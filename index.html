@@ -13,51 +13,188 @@
 <body>
 
   <!-- ==================== HEADER ==================== -->
-  <header class="header js-fixedWidth" id="js-header">
-    <div class="header-two-column">
-      <div class="header-inner inner">
-        <div class="header-links">
-          <ul class="list-sns">
-            <li>
-              <a href="https://x.com/saitama_story" target="_blank" rel="noopener noreferrer">
-                <img src="https://sumunara-saitama.pref.saitama.lg.jp/wp-content/themes/saitama/assets/img/share/icon_x.svg" alt="住むなら埼玉公式Xアカウント">
-              </a>
-            </li>
-            <li>
-              <a href="https://www.facebook.com/saitama.story2019" target="_blank" rel="noopener noreferrer">
-                <img src="https://sumunara-saitama.pref.saitama.lg.jp/wp-content/themes/saitama/assets/img/share/icon_facebook.svg" alt="住むなら埼玉公式Facebookアカウント">
-              </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/saitama_story/" target="_blank" rel="noopener noreferrer">
-                <img src="https://sumunara-saitama.pref.saitama.lg.jp/wp-content/themes/saitama/assets/img/share/icon_instagram.svg" alt="住むなら埼玉公式Instagramアカウント">
-              </a>
-            </li>
-          </ul>
+  <div class="header-wrapper" id="js-header-wrapper">
+
+    <header class="header js-fixedWidth" id="js-header">
+      <div class="header-two-column">
+        <div class="header-inner inner">
+          <div class="header-links">
+            <ul class="list-sns">
+              <li>
+                <a href="https://x.com/saitama_story" target="_blank" rel="noopener noreferrer">
+                  <img src="https://sumunara-saitama.pref.saitama.lg.jp/wp-content/themes/saitama/assets/img/share/icon_x.svg" alt="住むなら埼玉公式Xアカウント">
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/saitama.story2019" target="_blank" rel="noopener noreferrer">
+                  <img src="https://sumunara-saitama.pref.saitama.lg.jp/wp-content/themes/saitama/assets/img/share/icon_facebook.svg" alt="住むなら埼玉公式Facebookアカウント">
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/saitama_story/" target="_blank" rel="noopener noreferrer">
+                  <img src="https://sumunara-saitama.pref.saitama.lg.jp/wp-content/themes/saitama/assets/img/share/icon_instagram.svg" alt="住むなら埼玉公式Instagramアカウント">
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="header-icon">
+            <a href="https://sumunara-saitama.pref.saitama.lg.jp/">
+              <img src="https://sumunara-saitama.pref.saitama.lg.jp/wp-content/themes/saitama/assets/img/share/key_word.svg" alt="住むなら埼玉。">
+            </a>
+          </div>
+
+          <!-- Google カスタム検索（head の cse.js CXコードを設定してください） -->
+          <div id="___gcse_0"></div>
         </div>
 
-        <div class="header-icon">
-          <a href="https://sumunara-saitama.pref.saitama.lg.jp/">
-            <img src="https://sumunara-saitama.pref.saitama.lg.jp/wp-content/themes/saitama/assets/img/share/key_word.svg" alt="住むなら埼玉。">
+        <div class="header-contact-wrap">
+          <a href="https://sumunara-saitama.pref.saitama.lg.jp/support_counter/" class="nav-link header-contact-inner consultation">
+            <img src="https://sumunara-saitama.pref.saitama.lg.jp/wp-content/themes/saitama/assets/img/share/consultation.png" alt="">
+            <p class="text">移住相談</p>
+          </a>
+          <a href="https://sumunara-saitama.pref.saitama.lg.jp/contact_form/" class="nav-link header-contact-inner contact">
+            <img src="https://sumunara-saitama.pref.saitama.lg.jp/wp-content/themes/saitama/assets/img/share/contact.png" alt="">
+            <p class="text">お問い合わせ</p>
           </a>
         </div>
-
-        <!-- Google カスタム検索（CXコードを head の script タグに設定してください） -->
-        <div id="___gcse_0"></div>
       </div>
+    </header>
 
-      <div class="header-contact-wrap">
-        <a href="https://sumunara-saitama.pref.saitama.lg.jp/support_counter/" class="nav-link header-contact-inner consultation">
-          <img src="https://sumunara-saitama.pref.saitama.lg.jp/wp-content/themes/saitama/assets/img/share/consultation.png" alt="">
-          <p class="text">移住相談</p>
-        </a>
-        <a href="https://sumunara-saitama.pref.saitama.lg.jp/contact_form/" class="nav-link header-contact-inner contact">
-          <img src="https://sumunara-saitama.pref.saitama.lg.jp/wp-content/themes/saitama/assets/img/share/contact.png" alt="">
-          <p class="text">お問い合わせ</p>
-        </a>
-      </div>
+    <div class="global-nav-header" style="height: 70px;">
+      <button class="global-nav-icon" id="js-nav-button" aria-label="メニューを開く" aria-expanded="false" aria-controls="global-nav"></button>
     </div>
-  </header>
+
+    <nav class="global-nav js-fixedWidth" id="global-nav" aria-label="メインナビゲーション">
+      <div class="inner">
+        <div class="header-contact-wrap">
+          <a href="https://sumunara-saitama.pref.saitama.lg.jp/support_counter/" class="header-contact-inner consultation">
+            <img src="https://sumunara-saitama.pref.saitama.lg.jp/wp-content/themes/saitama/assets/img/share/consultation.png" alt="">
+            <p class="text">移住相談</p>
+          </a>
+        </div>
+        <ul class="nav-list">
+          <li class="nav-item nav-item-saitama-shape">
+            <a href="https://sumunara-saitama.pref.saitama.lg.jp/saitama/" class="nav-link">
+              <span class="nav-icon icon icon-saitama-shape"></span>
+              <span class="nav-link-text nav-link-text-hight">埼玉って<br class="is-visible-pc-header">どんなところ？</span>
+            </a>
+            <div class="nav-item-sub">
+              <div class="nav-item-inner">
+                <ul>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/saitama/saitama-appeal/">埼玉の魅力</a></li>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/saitama/saitama-data/">データで見る埼玉</a></li>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/saitama/saitama-area/">エリア紹介</a></li>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/saitama/immigration-63city/">埼玉県市町村検索</a></li>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/saitama/guidebook/">埼玉移住ガイドブック</a></li>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/saitama/archive-immigration-promotion/">移住&amp;シティプロモーション動画集</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="https://sumunara-saitama.pref.saitama.lg.jp/immigration/" class="nav-link">
+              <span class="nav-icon icon icon-immigration"></span>
+              <span class="nav-link-text nav-link-text-margin">移住の手引き</span>
+            </a>
+            <div class="nav-item-sub">
+              <div class="nav-item-inner">
+                <ul>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/immigration/immigration-order/">移住の進め方</a></li>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/immigration/immigration-parenting/">安心して子育てしたい</a></li>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/immigration/immigration-work/">自分らしく働きたい</a></li>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/immigration/immigration-nature/">自然の近くで暮らしたい</a></li>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/immigration/marrige_parenting/">結婚・子育て</a></li>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/immigration/immigration-aid/">移住支援金について</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="https://sumunara-saitama.pref.saitama.lg.jp/life/" class="nav-link">
+              <span class="nav-icon icon icon-residence"></span>
+              <span class="nav-link-text nav-link-text-margin">住まい</span>
+            </a>
+            <div class="nav-item-sub">
+              <div class="nav-item-inner">
+                <ul>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/life/life-live/">住まい</a></li>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/life/support-partners-top/">住むなら埼玉！応援パートナー</a></li>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/life/immigration-trial/">お試し居住について</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="https://sumunara-saitama.pref.saitama.lg.jp/work/" class="nav-link">
+              <span class="nav-icon icon icon-life"></span>
+              <span class="nav-link-text nav-link-text-margin">仕事</span>
+            </a>
+            <div class="nav-item-sub">
+              <div class="nav-item-inner">
+                <ul>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/work/life-work/">しごと</a></li>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/work/life-local_vitalization_cooperator/">地域おこし協力隊</a></li>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/work/employment-matching-top">埼玉県移住就業マッチングサイト</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="https://sumunara-saitama.pref.saitama.lg.jp/immigration-report/" class="nav-link">
+              <span class="nav-icon icon icon-experiences"></span>
+              <span class="nav-link-text nav-link-text-margin">移住者体験談</span>
+            </a>
+            <div class="nav-item-sub">
+              <div class="nav-item-inner">
+                <ul>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/immigration-report/archive-immigration-interview_movie/">移住者インタビュー動画一覧</a></li>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/immigration-report/archive-immigration-interview_article/">移住者インタビュー記事一覧</a></li>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/immigration-report/immigration_project/">埼玉移住プロジェクト</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="https://sumunara-saitama.pref.saitama.lg.jp/news/" class="nav-link">
+              <span class="nav-icon icon icon-news"></span>
+              <span class="nav-link-text nav-link-text-margin">ニュース</span>
+            </a>
+            <div class="nav-item-sub">
+              <div class="nav-item-inner">
+                <ul>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/news/table-news/">ニュース一覧</a></li>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/news/table-event/">イベント情報一覧</a></li>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/news/table-seminar/">セミナー情報一覧</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="https://sumunara-saitama.pref.saitama.lg.jp/for_company/" class="nav-link">
+              <span class="nav-icon icon icon-company"></span>
+              <span class="nav-link-text nav-link-text-margin">企業の皆様へ</span>
+            </a>
+            <div class="nav-item-sub">
+              <div class="nav-item-inner">
+                <ul>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/for_company/for_company-furusato/">企業版ふるさと納税</a></li>
+                  <li><a href="https://sumunara-saitama.pref.saitama.lg.jp/for_company/employment-matching-business_operator/">埼玉移住就業マッチングサイト掲載事業者募集</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item nav-item_sp">
+            <a href="https://sumunara-saitama.pref.saitama.lg.jp/contact_form/" class="nav-link">
+              <span class="nav-icon icon icon-support_counter"></span>
+              <span class="nav-link-text">お問い合わせ</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+  </div>
   <!-- ==================== /HEADER ==================== -->
 
   <main>

@@ -8,6 +8,24 @@
 (function () {
   'use strict';
 
+  // ハンバーガーメニュー（SP）
+  // ------------------------------------------------------------
+  var navButton = document.getElementById('js-nav-button');
+  var globalNav = document.getElementById('global-nav');
+  if (navButton && globalNav) {
+    navButton.addEventListener('click', function () {
+      var isOpen = navButton.getAttribute('aria-expanded') === 'true';
+      navButton.setAttribute('aria-expanded', String(!isOpen));
+      navButton.setAttribute('aria-label', isOpen ? 'メニューを開く' : 'メニューを閉じる');
+      navButton.classList.toggle('is-active', !isOpen);
+      if (isOpen) {
+        globalNav.style.display = '';
+      } else {
+        globalNav.style.display = 'block';
+      }
+    });
+  }
+
   // スムーススクロール（アンカーリンク）
   // ------------------------------------------------------------
   const anchors = document.querySelectorAll('a[href^="#"]');
