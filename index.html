@@ -277,31 +277,361 @@
 
   <main>
 
-    <section class="hero" id="about">
-      <div class="inner">
-        <h1 class="hero-title">埼玉で、新しい暮らしを。</h1>
-        <p class="hero-lead">都心へのアクセスも、自然も、子育て環境も。<br>あなたにあった暮らしが埼玉にあります。</p>
-        <a href="#chat" class="button">移住について相談する</a>
-      </div>
-    </section>
+    <!-- ==================== FV HERO ==================== -->
 
-    <section class="support" id="support">
-      <div class="inner">
-        <h2 class="section-title">移住支援情報</h2>
-        <p class="section-lead">埼玉県の移住支援制度や補助金情報をご紹介します。</p>
+    <section class="fv-section" id="fv">
+      <!-- Background texture -->
+      <div class="fv-bg-texture">
+        <div class="fv-bg-texture-inner">
+          <div class="fv-bg-texture-rotate">
+            <img class="fv-bg-texture-img" src="https://www.figma.com/api/mcp/asset/5e876d75-aa2d-42d5-81c9-f197e7c515ca" alt="">
+          </div>
+        </div>
       </div>
-    </section>
 
-    <section class="chat-section" id="chat">
-      <div class="inner">
-        <h2 class="section-title">AIチャットで相談する</h2>
-        <p class="section-lead">移住に関するご質問に、AIがお答えします。（近日公開）</p>
-        <div class="chatbot-area" aria-label="チャットボットエリア">
-          <!-- チャットボット実装予定 -->
+      <!-- Green blob + main title -->
+      <div class="fv-blob-area">
+        <img class="fv-blob-img" src="https://www.figma.com/api/mcp/asset/70dc2e99-22c1-4f2e-9198-2f7c51b57935" alt="">
+        <div class="fv-title-group">
+          <div class="fv-label">
+            <span class="fv-label-text">埼玉暮らしのギモンを即解決！</span>
+          </div>
+          <div class="fv-main-title">
+            <p>「住むなら埼玉」</p>
+            <p>AI相談</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Description boxes -->
+      <div class="fv-description">
+        <div class="fv-desc-box"><p>住まい・仕事・子育て・暮らし。</p></div>
+        <div class="fv-desc-box"><p>埼玉へ住み替えに関するギモン、</p></div>
+        <div class="fv-desc-box">
+          <p class="fv-desc-text--desktop">AIコンシェルジュが24時間365日いつでもお答えします。</p>
+          <p class="fv-desc-text--sp">AIコンシェルジュが24時間365日</p>
+        </div>
+        <div class="fv-desc-box fv-desc-box--sp"><p>いつでもお答えします。</p></div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="fv-buttons">
+        <div class="fv-btn-row">
+          <a href="#chat" class="fv-button"><span class="fv-button-text">いますぐ相談する</span></a>
+          <a href="#faq" class="fv-button"><span class="fv-button-text">よくある質問を見てみる</span></a>
+        </div>
+        <div class="fv-disclaimer">
+          <span class="fv-disclaimer-line"></span>
+          <span class="fv-disclaimer-text">※ 無料・会員登録不要・24時間365日対応</span>
+          <span class="fv-disclaimer-line"></span>
+        </div>
+      </div>
+
+      <!-- Kobaton (left mascot) -->
+      <div class="fv-kobaton">
+        <img class="fv-kobaton-img" src="assets/img/02_png/WF/kobaton_img.png" alt="埼玉県マスコット コバトン">
+      </div>
+
+      <!-- Saitamatchi (right mascot) -->
+      <div class="fv-saitamatchi">
+        <img class="fv-saitamatchi-img" src="https://www.figma.com/api/mcp/asset/ad78e780-9293-46de-873c-104d11ae0fca" alt="埼玉県マスコット さいたまっち">
+      </div>
+
+      <!-- Mascot labels -->
+      <div class="fv-mascot-label fv-mascot-label-left">
+        <p>埼玉県マスコット</p>
+        <p>「コバトン」</p>
+      </div>
+      <div class="fv-mascot-label fv-mascot-label-right">
+        <p>埼玉県マスコット</p>
+        <p>「さいたまっち」</p>
+      </div>
+
+      <!-- Decorative elements -->
+      <div class="fv-deco fv-deco-5">
+        <img src="https://www.figma.com/api/mcp/asset/efe9ffe9-629e-45e4-8630-3bd6b6303e52" alt="">
+      </div>
+      <div class="fv-deco fv-deco-4">
+        <img src="https://www.figma.com/api/mcp/asset/664f1576-f42c-4e95-9650-be29a1fb27e7" alt="">
+      </div>
+      <div class="fv-deco fv-deco-3">
+        <img src="https://www.figma.com/api/mcp/asset/ceef4df2-8450-4d9d-b3c5-be063c9aaf21" alt="">
+      </div>
+      <div class="fv-deco fv-deco-2">
+        <img src="https://www.figma.com/api/mcp/asset/dbf0c813-2905-42fb-ba49-22069deaa18a" alt="">
+      </div>
+      <div class="fv-deco fv-deco-1">
+        <img src="https://www.figma.com/api/mcp/asset/a104dd1f-a1c6-4ea3-80d5-0b976c857bc1" alt="">
+      </div>
+
+      <!-- White bar at bottom -->
+      <div class="fv-white-bar"></div>
+
+      <!-- Floating CTA banner (SP only) -->
+      <a href="#chat" class="fv-floating-banner">
+        <div class="fv-floating-banner__card">
+          <div class="fv-floating-banner__content">
+            <div class="fv-floating-banner__icon">
+              <img src="https://www.figma.com/api/mcp/asset/fa9ae4bd-3acc-4193-906c-6a834b076dbb" alt="">
+            </div>
+            <p class="fv-floating-banner__title"><span class="fv-floating-banner__underline">AIコンシェルジュ</span>に相談する</p>
+          </div>
+        </div>
+        <p class="fv-floating-banner__note">※チャットウインドウが開きます</p>
+      </a>
+    </section>
+    <!-- ==================== /FV HERO ==================== -->
+
+    <!-- ==================== SECTIONS 1-5 ==================== -->
+
+    <!-- SECTION 1: AI Support -->
+    <section class="ai-section aisupport-section" id="ai-support">
+      <div class="ai-section-inner">
+        <div class="aisupport-mascot">
+          <img src="https://www.figma.com/api/mcp/asset/55e8f059-a245-4e79-9281-ed57bfce6aca" alt="">
+        </div>
+        <div class="sec-heading-group">
+          <div class="sec-heading-group__inner">
+            <span class="sec-badge">AI Support</span>
+            <div class="sec-heading-group__title-wrap">
+              <h2 class="sec-h2">あなたの住み替えを<br class="is-sp">AIがサポート</h2>
+              <hr class="sec-divider">
+            </div>
+          </div>
+          <p class="sec-lead">埼玉県の住み替えに特化した<br class="is-sp">AIコンシェルジュです。<br>知りたいこと、気になることを入力するだけで、<br class="is-sp">AIがチャットでお答えします。</p>
+        </div>
+        <div class="aisupport-body">
+          <div class="aisupport-features">
+            <div class="aisupport-card">
+              <span class="aisupport-card__num">01</span>
+              <div class="aisupport-card__icon"><img src="assets/img/icons/WF/aisupport_icon_1.svg" alt=""></div>
+              <div class="aisupport-card__text">
+                <p class="aisupport-card__title">24時間365日いつでも相談</p>
+                <p class="aisupport-card__desc">深夜や休日でも、思い立ったときにすぐ相談できます。</p>
+              </div>
+            </div>
+            <div class="aisupport-card">
+              <span class="aisupport-card__num">02</span>
+              <div class="aisupport-card__icon"><img src="assets/img/icons/WF/aisupport_icon_2.svg" alt=""></div>
+              <div class="aisupport-card__text">
+                <p class="aisupport-card__title">登録不要・無料で利用可能</p>
+                <p class="aisupport-card__desc">会員登録なしで、すぐに使い始めることができます。</p>
+              </div>
+            </div>
+            <div class="aisupport-card">
+              <span class="aisupport-card__num">03</span>
+              <div class="aisupport-card__icon"><img src="assets/img/icons/WF/aisupport_icon_3.svg" alt=""></div>
+              <div class="aisupport-card__text">
+                <p class="aisupport-card__title">埼玉県の情報に特化</p>
+                <p class="aisupport-card__desc">市区町村別の支援制度・物件・生活情報をもとに回答します。</p>
+              </div>
+            </div>
+          </div>
+          <div class="aisupport-chat">
+            <div class="aisupport-chat__window">
+              <div class="chat-bubble chat-bubble--ai">埼玉県への移住について気になることを自由にご質問ください。おすすめのエリアや暮らし、支援制度など何でもご気軽にどうぞ。</div>
+              <div class="chat-avatar chat-avatar--1"><img src="https://www.figma.com/api/mcp/asset/231530a6-d420-4108-b54e-60455abf176f" alt=""></div>
+              <div class="chat-bubble chat-bubble--user">東京へのアクセスがいい地域を教えて。</div>
+              <div class="chat-bubble chat-bubble--ai2">埼玉県への移住情報に限定してお答えします。東京へのアクセスが良い埼玉の地域としては、都心へ電車での通勤を前提に考えると東部地域と南部地域が特に便利です。</div>
+              <div class="chat-avatar chat-avatar--2"><img src="https://www.figma.com/api/mcp/asset/231530a6-d420-4108-b54e-60455abf176f" alt=""></div>
+            </div>
+            <p class="aisupport-chat__note">※表示内容はイメージです。</p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- SECTION 2: Topics -->
+    <section class="ai-section topics-section" id="ai-topics">
+      <div class="ai-section-inner">
+        <div class="topics-card">
+          <div class="sec-heading-group">
+            <div class="sec-heading-group__inner">
+              <span class="sec-badge">Saitama Relocation</span>
+              <div class="sec-heading-group__title-wrap">
+                <h2 class="sec-h2">埼玉の暮らしに関する<br class="is-sp">こと、何でも聞けます</h2>
+                <hr class="sec-divider">
+              </div>
+            </div>
+          </div>
+          <div class="topics-grid">
+            <div class="topics-item">
+              <div class="topics-item__icon"><img src="assets/img/icons/WF/relocation_icon_1.svg" alt=""></div>
+              <p class="topics-item__label">エリア・市町村の特徴や雰囲気</p>
+            </div>
+            <div class="topics-item">
+              <div class="topics-item__icon"><img src="assets/img/icons/WF/relocation_icon_2.svg" alt=""></div>
+              <p class="topics-item__label">二地域居住</p>
+            </div>
+            <div class="topics-item">
+              <div class="topics-item__icon"><img src="assets/img/icons/WF/relocation_icon_3.svg" alt=""></div>
+              <p class="topics-item__label">就業・転職・<br>起業・就農</p>
+            </div>
+            <div class="topics-item">
+              <div class="topics-item__icon"><img src="assets/img/icons/WF/relocation_icon_4.svg" alt=""></div>
+              <p class="topics-item__label">保育・学校・子育て支援制度</p>
+            </div>
+            <div class="topics-item">
+              <div class="topics-item__icon"><img src="assets/img/icons/WF/relocation_icon_5.svg" alt=""></div>
+              <p class="topics-item__label">住まい・移住支援金・住宅補助</p>
+            </div>
+            <div class="topics-item">
+              <div class="topics-item__icon"><img src="assets/img/icons/WF/relocation_icon_6.svg" alt=""></div>
+              <p class="topics-item__label">手続きの流れ・相談窓口・体験イベント</p>
+            </div>
+          </div>
+        </div>
+        <p class="topics-note">「住むなら埼玉」サイトに掲載されている情報をもとに、AIがあなたの質問にお答えします。<br>名前などの個人情報登録は不要です。</p>
+      </div>
+    </section>
+
+    <!-- SECTION 3: 3 Steps -->
+    <section class="ai-section steps-section" id="ai-steps">
+      <div class="ai-section-inner">
+        <div class="steps-card">
+          <div class="steps-mascot-left"><img src="https://www.figma.com/api/mcp/asset/3ada32fa-d4e0-42d9-8938-0d578c62db47" alt=""></div>
+          <div class="steps-mascot-right"><img src="https://www.figma.com/api/mcp/asset/418ce7b6-f794-4bf7-a9f4-5a375bc3264d" alt=""></div>
+          <div class="sec-heading-group">
+            <div class="sec-heading-group__inner">
+              <span class="sec-badge sec-badge--outline">カンタン3ステップ！</span>
+              <div class="sec-heading-group__title-wrap">
+                <h2 class="sec-h2 sec-h2--white">さっそくAIに聞いてみよう</h2>
+                <hr class="sec-divider sec-divider--white">
+              </div>
+            </div>
+          </div>
+          <div class="steps-list">
+            <div class="step-item">
+              <span class="step-item__badge">STEP.1</span>
+              <span class="step-item__text">「AIコンシェルジュに相談する」ボタンをタップ</span>
+            </div>
+            <div class="step-arrow"><img src="https://www.figma.com/api/mcp/asset/b4c18828-b3f3-400e-9c20-ad97d182dc3d" alt="▼"></div>
+            <div class="step-item">
+              <span class="step-item__badge">STEP.2</span>
+              <span class="step-item__text">質問を入力　<span style="font-size:16px;color:#515151;">※よくある質問をコピペしてもOK！</span></span>
+            </div>
+            <div class="step-arrow"><img src="https://www.figma.com/api/mcp/asset/b4c18828-b3f3-400e-9c20-ad97d182dc3d" alt="▼"></div>
+            <div class="step-item">
+              <span class="step-item__badge">STEP.3</span>
+              <span class="step-item__text">AIが回答　※回答に返答したり、続けて質問できます</span>
+            </div>
+          </div>
+          <div class="steps-btns">
+            <a href="#faq" class="btn-yellow">よくある質問を見てみる</a>
+            <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+              <a href="#chat" class="btn-yellow has-icon" style="padding-left:8px;width:288px;box-sizing:border-box;">
+                <span class="btn-yellow__icon"><img src="https://www.figma.com/api/mcp/asset/fa9ae4bd-3acc-4193-906c-6a834b076dbb" alt=""></span>
+                さっそく試してみる
+              </a>
+              <p style="font-family:'Kiwi Maru',serif;font-size:14px;color:#fff;letter-spacing:0.56px;margin:0;">※チャットウインドウが開きます</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: FAQ -->
+    <section class="ai-section faq-section" id="faq">
+      <div class="ai-section-inner">
+        <div class="faq-header">
+          <div class="faq-img-panel">
+            <img class="faq-img-panel__img" src="assets/img/01_svg/WF/faq_img.svg" alt="">
+          </div>
+          <div class="faq-heading">
+            <div class="sec-heading-group__inner" style="align-items:flex-start;">
+              <span class="sec-badge">FAQ</span>
+              <div class="sec-heading-group__title-wrap" style="align-items:flex-start;">
+                <h2 class="sec-h2" style="text-align:left;">何から聞けばいい?<br>そんなときは、まずはコピペするだけ。</h2>
+                <hr class="sec-divider">
+              </div>
+            </div>
+            <p class="sec-lead" style="text-align:left;">移住相談でよくある質問を集めました。<br>気になる質問を「コピー」して、チャットに貼り付けるだけですぐに相談が始められます。</p>
+          </div>
+        </div>
+        <div class="faq-body">
+          <div class="faq-group-title">
+            <p class="faq-group-title__text">よくある質問</p>
+            <div class="faq-group-title__line"></div>
+          </div>
+          <div class="faq-list-box">
+            <div class="faq-row">
+              <button class="faq-copy-btn" onclick="navigator.clipboard.writeText('一人暮らしにおすすめのエリアはどこ？')">コピー</button>
+              <p class="faq-q-text">一人暮らしにおすすめのエリアはどこ？</p>
+            </div>
+            <div class="faq-row">
+              <button class="faq-copy-btn" onclick="navigator.clipboard.writeText('埼玉への移住がきになってる。何から考えればいい？')">コピー</button>
+              <p class="faq-q-text">埼玉への移住がきになってる。何から考えればいい？</p>
+            </div>
+            <div class="faq-row">
+              <button class="faq-copy-btn" onclick="navigator.clipboard.writeText('家賃を抑えつつ、生活の質を上げられるおすすめの街は？')">コピー</button>
+              <p class="faq-q-text">家賃を抑えつつ、生活の質を上げられるおすすめの街は？</p>
+            </div>
+          </div>
+          <div class="faq-group-title">
+            <p class="faq-group-title__text">カテゴリから選ぶ</p>
+            <div class="faq-group-title__line"></div>
+          </div>
+          <div class="faq-cat-wrap">
+            <div class="faq-cat-tabs">
+              <div class="faq-cat-tab faq-cat-tab--active">住まい・暮らし</div>
+              <div class="faq-cat-tab">仕事・はたらき方</div>
+              <div class="faq-cat-tab">子育て・教育</div>
+              <div class="faq-cat-tab">支援金・補助制度</div>
+              <div class="faq-cat-tab">エリア・市町村選び</div>
+              <div class="faq-cat-tab">はじめての住み替え相談</div>
+            </div>
+            <div class="faq-cat-content">
+              <div class="faq-row">
+                <button class="faq-copy-btn" onclick="navigator.clipboard.writeText('家賃相場はどのくらい？東京と比べてどれくらい抑えられる？')">コピー</button>
+                <p class="faq-q-text">家賃相場はどのくらい？東京と比べてどれくらい抑えられる？</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn" onclick="navigator.clipboard.writeText('「住むなら埼玉！応援パートナー」ってどんなサポートが受けられる?')">コピー</button>
+                <p class="faq-q-text">「住むなら埼玉！応援パートナー」ってどんなサポートが受けられる?</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn" onclick="navigator.clipboard.writeText('「平日は都内、週末は埼玉」のような二地域居住はできる？')">コピー</button>
+                <p class="faq-q-text">「平日は都内、週末は埼玉」のような二地域居住はできる？</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn" onclick="navigator.clipboard.writeText('都心に通いやすくて自然も近いエリアの特徴を教えて')">コピー</button>
+                <p class="faq-q-text">都心に通いやすくて自然も近いエリアの特徴を教えて</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn" onclick="navigator.clipboard.writeText('家族向けの広い間取り(3LDK以上)が見つかりやすいエリアの傾向は？')">コピー</button>
+                <p class="faq-q-text">家族向けの広い間取り(3LDK以上)が見つかりやすいエリアの傾向は？</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: CTA -->
+    <section class="ai-section cta-section" id="ai-cta">
+      <div class="ai-section-inner">
+        <div class="cta-card">
+          <div class="cta-mascot" style="margin-left:-40px;"><img src="assets/img/02_png/WF/cta_img.png" alt=""></div>
+          <div class="cta-content">
+            <div class="cta-heading">
+              <div class="cta-title-wrap">
+                <h2 class="sec-h2 sec-h2--white">AIコンシェルジュに埼玉暮らしを相談！</h2>
+                <hr class="sec-divider sec-divider--white">
+              </div>
+              <p class="cta-lead">埼玉への住み替え・暮らしについて、AIコンシェルジュが今すぐお答えします。</p>
+            </div>
+            <div class="cta-btn-wrap">
+              <a href="#chat" class="btn-yellow has-icon" style="padding-left:8px;">
+                <span class="btn-yellow__icon"><img src="https://www.figma.com/api/mcp/asset/fa9ae4bd-3acc-4193-906c-6a834b076dbb" alt=""></span>
+                さっそく試してみる
+              </a>
+              <p class="cta-note">※チャットウインドウが開きます</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ==================== /SECTIONS 1-5 ==================== -->
   </main>
 
   <!-- ==================== FOOTER ==================== -->

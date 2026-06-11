@@ -23967,3 +23967,1954 @@ input:checked + span::after {
     display: none;
   }
 }
+
+// ============================================================
+// AI相談ページ — FV・セクション共通スタイル
+// ============================================================
+
+// ページ固有の変数
+$ai-green:        #36bc87;
+$ai-green-light:  #c1eec1;
+$ai-yellow:       #ffcc52;
+$ai-bg-cream:     #faf9eb;
+$ai-text:         #323232;
+$ai-text-sub:     #515151;
+$ai-blue:         #4275fb;
+$ai-border-dark:  #323232;
+
+$font-kiwi:    'Kiwi Maru', serif;
+$font-quick:   'Quicksand', sans-serif;
+
+
+// ============================================================
+// FV HERO
+// ============================================================
+
+.fv-section {
+  position: relative;
+  width: 100%;
+  background-color: $ai-bg-cream;
+  border-top: 1px solid #dadada;
+  overflow: hidden;
+  height: 85vh;
+  min-height: 698px;
+}
+
+.fv-bg-texture {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+
+  &-inner {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2555.879px;
+    left: -748.17px;
+    top: -917.75px;
+    width: 2776.056px;
+  }
+
+  &-rotate {
+    transform: rotate(36.82deg);
+    flex-shrink: 0;
+  }
+
+  &-img {
+    height: 1357.188px;
+    width: 2451.785px;
+    display: block;
+  }
+}
+
+.fv-blob-area {
+  position: absolute;
+  height: 83%;    // 580 / 698
+  left: 13%;      // 166 / 1280
+  top: -3%;       // -21 / 698
+  width: 79%;     // 1011 / 1280
+}
+
+.fv-blob-img {
+  position: absolute;
+  top: 7.29%;
+  right: 4.65%;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top left;
+}
+
+.fv-title-group {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(calc(-50% - 32px), calc(-50% + 22px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 673px;
+}
+
+.fv-label {
+  background: white;
+  border: 2px dashed $ai-green;
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  &-text {
+    font-family: 'Zarame Gothic', 'M PLUS Rounded 1c', 'Rounded Mplus 1c', 'ヒラギノ丸ゴ Pro', sans-serif;
+    font-weight: 900;
+    font-size: 38px;
+    color: #288d65;
+    letter-spacing: 1.9px;
+    line-height: 1;
+    white-space: nowrap;
+    text-align: center;
+  }
+}
+
+.fv-main-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+  white-space: nowrap;
+
+  p {
+    font-family: 'Zarame Gothic', 'M PLUS Rounded 1c', 'Rounded Mplus 1c', 'ヒラギノ丸ゴ Pro', sans-serif;
+    font-weight: 900;
+    font-size: 70px;
+    color: white;
+    letter-spacing: 3.5px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25);
+    margin: 0;
+  }
+}
+
+.fv-description {
+  position: absolute;
+  left: 50%;
+  top: 62.9%;     // 439 / 698
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.fv-desc-box {
+  background: white;
+  border-right: 1px solid $ai-green;
+  border-bottom: 1px solid $ai-green;
+  border-radius: 4px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  p {
+    font-family: $font-kiwi;
+    font-weight: 500;
+    font-size: 15px;
+    color: $ai-text;
+    letter-spacing: 0.6px;
+    line-height: 1;
+    white-space: nowrap;
+    text-shadow: 0px 0px 2px white;
+    margin: 0;
+  }
+}
+
+.fv-buttons {
+  position: absolute;
+  left: 50%;
+  top: 79.7%;     // 556 / 698
+  transform: translateX(-50%);
+  width: 589px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.fv-btn-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  width: 100%;
+}
+
+.fv-button {
+  background: $ai-yellow;
+  border-top: 2px solid $ai-border-dark;
+  border-left: 2px solid $ai-border-dark;
+  border-right: 2px solid $ai-border-dark;
+  border-bottom: 4px solid $ai-border-dark;
+  border-radius: 40px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 288px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover { opacity: 0.85; }
+
+  &:last-child { width: 285px; }
+
+  &-text {
+    font-family: $font-kiwi;
+    font-weight: 500;
+    font-size: 20px;
+    color: $ai-text;
+    letter-spacing: 0.8px;
+    line-height: 1;
+    white-space: nowrap;
+    text-align: center;
+  }
+}
+
+.fv-disclaimer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  &-line {
+    flex: 1 0 0;
+    height: 1px;
+    background: $ai-text;
+    opacity: 0.4;
+    min-width: 1px;
+  }
+
+  &-text {
+    font-family: $font-kiwi;
+    font-weight: 400;
+    font-size: 14px;
+    color: $ai-text;
+    letter-spacing: 0.56px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+}
+
+.fv-kobaton {
+  position: absolute;
+  height: 313px;
+  left: 0;
+  bottom: 188px;  // 698 - (197 + 313)
+  top: auto;
+  width: 157px;
+  pointer-events: none;
+
+  &-img {
+    position: absolute;
+    height: 214.673px;
+    left: 0;
+    top: 0;
+    width: 157px;
+    object-fit: cover;
+    object-position: -116px 0;
+  }
+
+  &-bubble {
+    position: absolute;
+    bottom: -12.74%;
+    left: -24px;
+    top: 61.66%;
+    width: 132.866px;
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+.fv-saitamatchi {
+  position: absolute;
+  height: 250px;
+  left: auto;
+  right: 0;       // 1099 + 181 = 1280px = right edge
+  bottom: 252px;  // 698 - (196 + 250)
+  top: auto;
+  width: 181px;
+  pointer-events: none;
+
+  &-img {
+    position: absolute;
+    height: 194px;
+    left: 1px;
+    top: 0;
+    width: 180.755px;
+    object-fit: cover;
+    object-position: -108px 0;
+  }
+}
+
+.fv-mascot-label {
+  position: absolute;
+  top: auto;
+  bottom: 539px;  // 698 - 159; keeps label above mascots at any section height
+  font-family: $font-kiwi;
+  font-weight: 500;
+  color: $ai-text;
+  letter-spacing: 0.7px;
+
+  &-left  { left: 16px; }
+  &-right { left: auto; right: 15px; }
+
+  p {
+    margin: 0;
+    line-height: 1.2;
+
+    &:first-child { font-size: 12px; }
+    &:last-child  { font-size: 14px; }
+  }
+}
+
+.fv-deco {
+  position: absolute;
+  pointer-events: none;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &-1 { height: 97.188px;  left: 199px;         top: 87px;       width: 76.473px; }
+  &-2 { height: 105.313px; left: 34px;          top: 23px;       width: 88.998px; }
+  &-3 { height: 127.756px; left: 80px;          bottom: 3px; top: auto; width: 111px; }
+  &-4 { height: 143.485px; left: auto; right: 92px;  top: 24px;  width: 146.362px; } // 1280-1042-146
+  &-5 { height: 121px;     left: auto; right: 50px;  bottom: 112px; top: auto; width: 95.634px; } // 1280-1134-96; bottom: 698-466-121-1
+}
+
+.fv-white-bar {
+  position: absolute;
+  background: white;
+  height: 22px;
+  left: 0;
+  bottom: 0;
+  top: auto;
+  width: 100%;
+}
+
+
+// ============================================================
+// AI相談 セクション共通
+// ============================================================
+
+.ai-section {
+  width: 100%;
+  box-sizing: border-box;
+
+  &-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 96px 100px;
+    box-sizing: border-box;
+  }
+}
+
+.sec-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: $ai-green;
+  color: #fff;
+  font-family: $font-quick;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  padding: 4px 20px;
+  border-radius: 104px;
+  white-space: nowrap;
+
+  &--outline {
+    background: #fff;
+    color: $ai-green;
+    border: 1px solid $ai-green;
+    padding: 8px 20px;
+  }
+}
+
+.sec-h2 {
+  font-family: $font-kiwi;
+  font-weight: 500;
+  font-size: 40px;
+  color: $ai-text;
+  letter-spacing: 1.6px;
+  line-height: 1.4;
+  text-align: center;
+  margin: 0;
+
+  &--white { color: #fff; }
+}
+
+.sec-divider {
+  width: 100%;
+  height: 0;
+  border: none;
+  border-top: 2px dashed rgba($ai-green, 0.5);
+  margin: 0;
+
+  &--white { border-top-color: rgba(#fff, 0.5); }
+}
+
+.sec-heading-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+  }
+
+  &__title-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    align-items: center;
+  }
+}
+
+.sec-lead {
+  font-family: $font-kiwi;
+  font-weight: 500;
+  font-size: 16px;
+  color: $ai-text;
+  letter-spacing: 0.64px;
+  line-height: 1.6;
+  text-align: center;
+  margin: 0;
+}
+
+.btn-yellow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: $ai-yellow;
+  border-top: 2px solid $ai-border-dark;
+  border-left: 2px solid $ai-border-dark;
+  border-right: 2px solid $ai-border-dark;
+  border-bottom: 4px solid $ai-border-dark;
+  border-radius: 40px;
+  padding: 20px 24px;
+  font-family: $font-kiwi;
+  font-weight: 500;
+  font-size: 20px;
+  color: $ai-text;
+  letter-spacing: 0.8px;
+  line-height: 1.6rem;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  gap: 8px;
+  transition: opacity 0.2s;
+
+  &:hover { opacity: 0.85; }
+
+  &.has-icon{
+    padding: 6px 24px;
+    justify-content: flex-start;
+    padding-left: 6px;
+  }
+
+  &__icon {
+    background: #fff;
+    border-radius: 104px;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    img {
+      width: 35px;
+      height: 34px;
+      object-fit: contain;
+    }
+  }
+}
+
+
+// ============================================================
+// Section 1: AI Support
+// ============================================================
+
+.aisupport-section {
+  background: #fff;
+
+  .ai-section-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    align-items: center;
+    position: relative;
+  }
+}
+
+.aisupport-body {
+  display: flex;
+  gap: 64px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.aisupport-features {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 678px;
+  flex-shrink: 0;
+}
+
+.aisupport-card {
+  background: $ai-bg-cream;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  padding: 32px 40px;
+  border-radius: 24px;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+
+  &__num {
+    position: absolute;
+    top: -19px;
+    left: 12px;
+    font-family: $font-quick;
+    font-weight: 700;
+    font-size: 40px;
+    color: $ai-green;
+    letter-spacing: 1.6px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  &__icon {
+    background: #fff;
+    border-radius: 16px;
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+  }
+
+  &__text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__title {
+    font-family: $font-kiwi;
+    font-weight: 500;
+    font-size: 28px;
+    color: $ai-text;
+    letter-spacing: 1.12px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  &__desc {
+    font-family: $font-kiwi;
+    font-weight: 500;
+    font-size: 16px;
+    color: $ai-text;
+    letter-spacing: 0.64px;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+.aisupport-chat {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  flex-shrink: 0;
+
+  &__window {
+    width: 338px;
+    height: 464px;
+    border: 4px solid $ai-green;
+    border-bottom-width: 8px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    background: #fff;
+  }
+
+  &__note {
+    font-family: $font-kiwi;
+    font-weight: 500;
+    font-size: 14px;
+    color: $ai-text-sub;
+    letter-spacing: 0.56px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+}
+
+.chat-bubble {
+  position: absolute;
+  border-radius: 16px;
+  padding: 16px;
+  font-family: $font-kiwi;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.56px;
+  line-height: 1.6;
+
+  &--ai  {
+    background: #f5f6fa;
+    color: $ai-text-sub;
+    border-radius: 16px 16px 16px 0;
+    left: 61px;
+    width: 260px;
+    top: 32px;
+  }
+
+  &--user {
+    background: $ai-blue;
+    color: #fff;
+    border-radius: 16px 16px 0 16px;
+    left: 61px;
+    width: 260px;
+    top: 172px;
+  }
+
+  &--ai2 {
+    background: #f5f6fa;
+    color: $ai-text-sub;
+    border-radius: 16px 16px 16px 0;
+    left: 61px;
+    width: 260px;
+    top: 268px;
+  }
+}
+
+.chat-avatar {
+  position: absolute;
+  left: 17px;
+  width: 38px;
+  height: 38px;
+  background: #fff;
+  border: 1px solid $ai-green;
+  border-radius: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+
+  &--1 { top: 118px; }
+  &--2 { top: 384px; }
+}
+
+.aisupport-mascot {
+  position: absolute;
+  left: 100px;
+  top: 168px;
+  width: 183px;
+  height: 110px;
+  pointer-events: none;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+
+// ============================================================
+// Section 2: Topics
+// ============================================================
+
+.topics-section {
+  background: $ai-bg-cream;
+
+  .ai-section-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+}
+
+.topics-card {
+  background: #fff;
+  border: 4px solid $ai-green-light;
+  border-bottom-width: 8px;
+  border-radius: 24px;
+  padding: 56px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 24px;
+  width: 100%;
+}
+
+.topics-item {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  min-height: 100px;
+
+  &__icon {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__label {
+    font-family: $font-kiwi;
+    font-weight: 500;
+    font-size: 18px;
+    color: $ai-text;
+    letter-spacing: 0.72px;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+.topics-note {
+  font-family: $font-kiwi;
+  font-weight: 500;
+  font-size: 14px;
+  color: $ai-text-sub;
+  letter-spacing: 0.56px;
+  line-height: 1.6;
+  text-align: center;
+  margin: 0;
+}
+
+
+// ============================================================
+// Section 3: Steps
+// ============================================================
+
+.steps-section {
+  background: #fff;
+
+  .ai-section-inner { padding: 40px; }
+}
+
+.steps-card {
+  background: $ai-green;
+  border-radius: 24px;
+  padding: 56px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  width: 617px;
+}
+
+.step-item {
+  background: #fff;
+  border-radius: 104px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+
+  &__badge {
+    background: $ai-green-light;
+    border-radius: 104px;
+    padding: 8px 16px;
+    font-family: $font-quick;
+    font-weight: 700;
+    font-size: 20px;
+    color: $ai-green;
+    letter-spacing: 0.8px;
+    line-height: 1;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  &__text {
+    font-family: $font-kiwi;
+    font-weight: 500;
+    font-size: 18px;
+    color: $ai-text;
+    letter-spacing: 0.72px;
+    line-height: 1.6;
+  }
+}
+
+.step-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+
+  img {
+    width: 13px;
+    transform: rotate(90deg);
+    object-fit: contain;
+  }
+}
+
+.steps-btns {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  width: 589px;
+}
+
+.steps-mascot-left {
+  position: absolute;
+  left: 60px;
+  top: 302px;
+  width: 200px;
+  height: 220px;
+  pointer-events: none;
+}
+
+.steps-mascot-right {
+  position: absolute;
+  right: 60px;
+  top: 284px;
+  width: 200px;
+  height: 256px;
+  pointer-events: none;
+}
+
+.steps-mascot-left img,
+.steps-mascot-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+// ============================================================
+// Section 4: FAQ
+// ============================================================
+
+.faq-section {
+  background: #fff;
+
+  .ai-section-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    align-items: center;
+  }
+}
+
+.faq-header {
+  display: flex;
+  gap: 56px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.faq-img-panel {
+  background: $ai-green-light;
+  border-radius: 0 24px 24px 0;
+  padding: 24px 32px 0;
+  width: 376px;
+  flex-shrink: 0;
+  overflow: hidden;
+
+  &__img {
+    width: 100%;
+    height: 229px;
+    object-fit: contain;
+    object-position: bottom center;
+    display: block;
+    margin-bottom: -4px;
+  }
+}
+
+.faq-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.faq-body {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 1044px;
+}
+
+.faq-group-title {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+
+  &__text {
+    font-family: $font-kiwi;
+    font-weight: 500;
+    font-size: 28px;
+    color: $ai-green;
+    letter-spacing: 1.12px;
+    line-height: 1.6;
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  &__line {
+    flex: 1;
+    height: 0;
+    border-top: 2px dashed rgba($ai-green, 0.4);
+  }
+}
+
+.faq-list-box {
+  background: $ai-bg-cream;
+  border: 2px solid $ai-green;
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.faq-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 20px 0;
+
+  & + & { border-top: 1px dashed rgba($ai-green, 0.4); }
+
+  &:first-child{
+    padding-top: 0;
+  }
+  
+  &:last-child{
+    padding-bottom: 0;
+  }
+}
+
+.faq-copy-btn {
+  background: $ai-yellow;
+  border-top: 1px solid $ai-border-dark;
+  border-left: 1px solid $ai-border-dark;
+  border-right: 1px solid $ai-border-dark;
+  border-bottom: 2px solid $ai-border-dark;
+  border-radius: 104px;
+  padding: 2px 16px 4px;
+  font-family: $font-kiwi;
+  font-weight: 500;
+  font-size: 16px;
+  color: $ai-text;
+  letter-spacing: 0.64px;
+  line-height: 1.6;
+  white-space: nowrap;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: opacity 0.2s;
+
+  &:hover { opacity: 0.8; }
+}
+
+.faq-q-text {
+  font-family: $font-kiwi;
+  font-weight: 500;
+  font-size: 16px;
+  color: $ai-text;
+  letter-spacing: 0.64px;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+.faq-cat-wrap {
+  display: flex;
+  border-radius: 24px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.faq-cat-tabs {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.faq-cat-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 24px;
+  font-family: $font-kiwi;
+  font-weight: 500;
+  font-size: 20px;
+  color: $ai-text-sub;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  background: #f0f0f0;
+  border-left: 2px solid #c0c0c0;
+  border-top: 2px solid #c0c0c0;
+  cursor: pointer;
+  white-space: nowrap;
+  flex: 1;
+
+  &:last-child {
+    border-bottom: 2px solid #c0c0c0;
+    border-radius: 0 0 0 24px;
+  }
+
+  &:first-child { border-radius: 24px 0 0 0; }
+
+  &--active {
+    background: $ai-bg-cream;
+    color: $ai-text;
+    border-color: $ai-green;
+    border-right: none;
+  }
+}
+
+.faq-cat-content {
+  background: $ai-bg-cream;
+  border: 2px solid $ai-green;
+  border-left: none;
+  border-radius: 0 24px 24px 0;
+  padding: 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+
+// ============================================================
+// Section 5: CTA
+// ============================================================
+
+.cta-section {
+  background: #fff;
+
+  .ai-section-inner {
+    padding: 8px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+.cta-card {
+  background: $ai-green;
+  border-radius: 24px;
+  padding: 56px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+  min-height: 260px;
+}
+
+.cta-content {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  align-items: center;
+}
+
+.cta-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+.cta-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+}
+
+.cta-lead {
+  font-family: $font-kiwi;
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 0.64px;
+  line-height: 1.6;
+  text-align: center;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.cta-btn-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.cta-note {
+  font-family: $font-kiwi;
+  font-weight: 500;
+  font-size: 14px;
+  color: #fff;
+  letter-spacing: 0.56px;
+  line-height: 1.6;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.cta-mascot {
+  position: absolute;
+  left: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 263px;
+  height: 316px;
+  pointer-events: none;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+
+// ============================================================
+// スマートフォン対応 (max-width: 540px)
+// ============================================================
+
+@media screen and (max-width: 540px) {
+
+  // ----------------------------------------------------------
+  // FV Hero SP
+  // (モバイル専用デザインなし → 要素を縦積みに再配置)
+  // ----------------------------------------------------------
+
+  .fv-section {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 20px 40px;
+    gap: 20px;
+    overflow: visible;
+  }
+
+  .fv-bg-texture { display: none; }
+
+  // ブロブ画像を隠し、タイトルエリアをグリーンカードに
+  .fv-blob-area {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: $ai-green;
+    border-radius: 20px;
+    padding: 28px 20px;
+    gap: 16px;
+  }
+
+  .fv-blob-img { display: none; }
+
+  .fv-title-group {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .fv-label {
+    border-style: dashed;
+    border-color: rgba(255, 255, 255, 0.7);
+  }
+
+  .fv-label-text { font-size: 20px; }
+
+  .fv-main-title p {
+    font-size: 40px;
+    letter-spacing: 2px;
+  }
+
+  // 説明ボックス — 絶対配置解除・改行許可
+  .fv-description {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+  }
+
+  .fv-desc-box {
+    p { white-space: normal; text-align: center; }
+  }
+
+  // ボタン — 縦積み・全幅
+  .fv-buttons {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .fv-btn-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .fv-button,
+  .fv-button:last-child { width: 100%; }
+
+  // 装飾要素を非表示
+  .fv-kobaton,
+  .fv-saitamatchi,
+  .fv-mascot-label,
+  .fv-deco,
+  .fv-white-bar { display: none; }
+
+
+  // ----------------------------------------------------------
+  // セクション共通 SP
+  // ----------------------------------------------------------
+
+  .ai-section-inner {
+    padding: 48px 20px;
+  }
+
+  .sec-h2 {
+    font-size: 24px;
+    letter-spacing: 0.96px;
+  }
+
+  .sec-badge { font-size: 16px; }
+  .sec-lead  { font-size: 14px; }
+
+  .btn-yellow {
+    font-size: 16px;
+    padding: 16px 24px;
+  }
+
+
+  // ----------------------------------------------------------
+  // Section 1: AI Support SP
+  // ----------------------------------------------------------
+
+  .aisupport-section .ai-section-inner { gap: 32px; }
+
+  // デスクトップ用マスコットオーバーレイ非表示
+  .aisupport-mascot { display: none; }
+
+  .aisupport-body {
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .aisupport-features {
+    width: 100%;
+    gap: 24px;
+  }
+
+  // カード: アイコン上・テキスト下の縦積みレイアウト
+  .aisupport-card {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 24px;
+    border-radius: 20px;
+    gap: 20px;
+
+    &__icon {
+      width: 116px;
+      height: 116px;
+
+      img { width: 100%; height: 100%; }
+    }
+
+    &__text   { align-items: center; }
+    &__title  { font-size: 20px; text-align: center; }
+    &__desc   { font-size: 16px; text-align: center; }
+  }
+
+  // チャットウィンドウ: 中央揃え・高さを Figma SP 値に合わせる
+  .aisupport-chat {
+    width: 100%;
+    align-items: center;
+    gap: 0;
+
+    &__window {
+      width: 100%;
+      max-width: 338px;
+      height: 429px;
+    }
+  }
+
+
+  // ----------------------------------------------------------
+  // Section 2: Topics SP
+  // ----------------------------------------------------------
+
+  .topics-section .ai-section-inner {
+    padding: 48px 20px;
+    gap: 20px;
+  }
+
+  .topics-card {
+    padding: 32px 20px;
+    border-radius: 20px;
+    gap: 32px;
+  }
+
+  // グリッド: 3列 → 1列
+  .topics-grid {
+    grid-template-columns: 1fr;
+    gap: 8px 0;
+  }
+
+  .topics-item {
+    min-height: 100px;
+    &__label { font-size: 16px; }
+  }
+
+  .topics-note { font-size: 14px; }
+
+
+  // ----------------------------------------------------------
+  // Section 3: Steps SP
+  // ----------------------------------------------------------
+
+  .steps-section .ai-section-inner { padding: 20px; }
+
+  .steps-card {
+    padding: 32px 20px;
+    gap: 32px;
+  }
+
+  // デスクトップ用マスコット (absolute) 非表示
+  .steps-mascot-left,
+  .steps-mascot-right { display: none; }
+
+  .steps-list { width: 100%; }
+
+  // ステップ: バッジ全幅 → テキスト中央揃えの縦積み
+  .step-item {
+    flex-direction: column;
+    border-radius: 16px;
+    align-items: center;
+    gap: 4px;
+    padding: 8px;
+
+    &__badge {
+      width: 100%;
+      font-size: 16px;
+      text-align: center;
+      border-radius: 24px;
+      padding: 4px 16px;
+    }
+
+    &__text {
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+
+  // ボタン: 縦積み・288px 固定
+  .steps-btns {
+    flex-direction: column;
+    width: 100%;
+    max-width: 288px;
+    gap: 8px;
+    align-items: center;
+
+    // FAQ ボタン
+    > .btn-yellow {
+      width: 288px;
+      box-sizing: border-box;
+      justify-content: center;
+    }
+
+    // チャットボタンラッパー
+    > div {
+      width: 288px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+
+      .btn-yellow {
+        width: 288px !important; // インラインスタイル上書き
+        box-sizing: border-box;
+        padding-left: 8px;
+      }
+    }
+  }
+
+
+  // ----------------------------------------------------------
+  // Section 4: FAQ SP
+  // ----------------------------------------------------------
+
+  .faq-section .ai-section-inner {
+    padding: 48px 20px;
+    gap: 32px;
+  }
+
+  // ヘッダー: 横並び → 縦積み (テキスト上・イラスト下)
+  .faq-header {
+    flex-direction: column-reverse;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .faq-heading { width: 100%; }
+
+  // イラストパネル: 右辺のみ角丸、右端まで伸張
+  .faq-img-panel {
+    width: calc(100% + 20px);
+    max-width: none;
+    flex-shrink: 0;
+    border-radius: 0 24px 24px 0;
+    margin-left: -20px;
+    align-self: flex-start;
+
+    &__img { height: 200px; }
+  }
+
+  .faq-body {
+    width: 100%;
+    gap: 20px;
+  }
+
+  .faq-row{
+    flex-direction: row-reverse;
+  }
+
+  .faq-group-title__text { font-size: 20px; }
+
+  // よくある質問リスト: 左右ボーダーなし・全幅（余白を突き抜け）
+  .faq-list-box {
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    padding: 16px 20px;
+    margin: 0 -20px;
+    width: calc(100% + 40px);
+  }
+
+  .faq-q-text   { font-size: 14px; }
+  .faq-copy-btn { font-size: 14px; padding: 2px 12px 4px; }
+
+  // カテゴリエリア: 全幅・2列グリッド + コンテンツ下配置
+  .faq-cat-wrap {
+    flex-direction: column;
+    border-radius: 0;
+    margin: 0 -20px;
+    width: calc(100% + 40px);
+    overflow: hidden;
+    border-top: 2px solid $ai-green;
+    border-bottom: 2px solid $ai-green;
+  }
+
+  .faq-cat-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    flex-direction: unset;
+  }
+
+  .faq-cat-tab {
+    flex: auto;
+    border: none;
+    border-bottom: 2px solid #c0c0c0;
+    border-right: 1px solid #c0c0c0;
+    border-radius: 0;
+    font-size: 14px;
+    padding: 16px 10px;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.4;
+
+    // 右列
+    &:nth-child(even) {
+      border-right: none;
+      border-left: 1px solid #c0c0c0;
+    }
+
+    &:first-child,
+    &:last-child { border-radius: 0; }
+
+    // アクティブタブ
+    &--active {
+      background: $ai-bg-cream;
+      color: $ai-text;
+      border-color: $ai-green;
+      border-right: 1px solid $ai-green;
+      border-bottom: 2px solid $ai-green;
+
+      &:nth-child(even) {
+        border-right: none;
+        border-left: 1px solid $ai-green;
+      }
+    }
+  }
+
+  // コンテンツエリア: タブの下に全幅で表示
+  .faq-cat-content {
+    border: none;
+    border-radius: 0;
+    padding: 20px;
+    width: 100%;
+    background: $ai-bg-cream;
+  }
+
+
+  // ----------------------------------------------------------
+  // Section 5: CTA SP
+  // ----------------------------------------------------------
+
+  .cta-section .ai-section-inner {
+    padding: 0 20px 40px;
+    gap: 8px;
+  }
+
+  .cta-card {
+    padding: 40px 20px;
+    border-radius: 20px;
+    min-height: auto;
+    align-items: center;
+  }
+
+  // デスクトップ用マスコット (absolute) 非表示
+  .cta-mascot { display: none; }
+
+  .cta-content {
+    gap: 32px;
+    width: 100%;
+  }
+
+  .cta-heading { gap: 20px; }
+
+  .cta-lead {
+    font-size: 14px;
+    white-space: normal;
+  }
+
+  .btn-yellow {
+    font-size: 16px;
+    width: 288px;
+    box-sizing: border-box;
+
+    &.has-icon{
+      padding: 4px 24px;
+      padding-left: 4px !important;
+    }
+  }
+
+  .cta-note { font-size: 14px; }
+
+} // end @media screen and (max-width: 540px)
+
+
+// ============================================================
+// 表示・非表示ユーティリティクラス
+// ============================================================
+
+// 992px 以上のみ表示
+.is-pc {
+  display: block;
+  @media screen and (max-width: 991px) { display: none !important; }
+}
+
+// 540px 以上のみ表示
+.is-pctab {
+  display: block;
+  @media screen and (max-width: 540px) { display: none !important; }
+}
+
+// 540px〜991px のみ表示
+.is-tab {
+  display: none;
+  @media screen and (min-width: 540px) and (max-width: 991px) { display: block !important; }
+}
+
+// 991px 以下のみ表示
+.is-tabsp {
+  display: none;
+  @media screen and (max-width: 991px) { display: block !important; }
+}
+
+// 540px 以下のみ表示
+.is-sp {
+  display: none;
+  @media screen and (max-width: 540px) { display: block !important; }
+}
+
+
+// ============================================================
+// FV HERO — desktop defaults for SP-only elements
+// ============================================================
+
+// Text / box variants hidden on desktop, shown on SP
+.fv-desc-text--sp,
+.fv-desc-box--sp,
+.fv-floating-banner { display: none; }
+
+
+// ============================================================
+// FV HERO — SP overrides (≤ 540px)
+// ============================================================
+
+@media screen and (max-width: 540px) {
+
+  // ---- Description box SP text swap ----
+  .fv-desc-text--desktop { display: none; }
+  .fv-desc-text--sp      { display: block; }
+  .fv-desc-box--sp       { display: flex; }   // inherits .fv-desc-box flex layout
+
+  // ---- Section container ----
+  .fv-section {
+    min-height: 777px;
+  }
+
+  // ---- Background texture ----
+  .fv-bg-texture {
+    width:  100%;
+    height: 100%;
+  }
+
+  .fv-bg-texture-inner {
+    height: 1773px;
+    width:  1926px;
+  }
+
+  .fv-bg-texture-img {
+    height: 941px;
+    width:  1701px;
+  }
+
+  // ---- Green blob area ----
+  .fv-blob-area {
+    height: 280px;
+  }
+
+  // ---- Title group (inside blob) ----
+  .fv-title-group {
+    width:     calc(100% - 18px);
+    transform: none;
+    gap:       8px;
+  }
+
+  .fv-label {
+    border-width: 1.2px;
+    padding:      8px 10.667px;
+  }
+
+  .fv-label-text {
+    font-size:      20px;
+    letter-spacing: 1px;
+  }
+
+  .fv-main-title {
+    width: 100%;
+
+    p {
+      font-size:      40px;
+      letter-spacing: 2px;
+    }
+  }
+
+  // ---- Description boxes ----
+  .fv-description {
+    width:     auto;
+  }
+
+  // ---- Buttons ----
+  .fv-buttons {
+    width: 232px;   // sets container width so children can use width: 100%
+    gap:   16px;
+    align-items: stretch;
+  }
+
+  .fv-btn-row {
+    flex-direction: column;
+    gap:            10px;
+    width:          100%;
+  }
+
+  .fv-button {
+    width:   100%;
+    padding: 16px 24px;
+
+    &:last-child { width: 100%; }
+  }
+
+  .fv-button-text {
+    font-size:      16px;
+    letter-spacing: 0.64px;
+  }
+
+  .fv-disclaimer {
+    width: 100%;
+  }
+
+  .fv-disclaimer-text {
+    font-size:      12px;
+    letter-spacing: 0.48px;
+    white-space:    normal;
+    text-align:     center;
+    max-width:      141px;
+    line-height:    1.3;
+  }
+
+  // ---- Kobaton (left mascot) ----
+  .fv-kobaton {
+    left:   0;
+    width:  83px;
+    height: 113px;
+
+    &-img {
+      width:           83px;
+      height:          113px;
+      object-fit:      contain;
+      object-position: left top;
+      left:            0;
+      top:             0;
+    }
+  }
+
+  // ---- Saitamatchi (right mascot) ----
+  .fv-saitamatchi {
+    left:   auto;
+    width:  94px;
+    height: 100px;
+
+    &-img {
+      width:           94px;
+      height:          100px;
+      object-fit:      contain;
+      object-position: right top;
+      left:            auto;
+      right:           0;
+      top:             0;
+    }
+  }
+
+  // ---- Mascot labels ----
+  .fv-mascot-label {
+    font-size: 10px;
+
+    p:first-child { font-size: 10px; }
+    p:last-child  { font-size: 10px; }
+
+    &-left  { left: 88px;  top: 628px; }
+    &-right { left: 218px; top: 628px; }
+  }
+
+  // ---- Decorative elements ----
+  .fv-deco {
+    // deco-1 (center flower): not needed on SP
+    &-1 { display: none; }
+
+    // deco-2: top-left corner leaf
+    &-2 { left: 16px;       top: 17px;  width: 52px; height: 61px; }
+
+    // deco-3: bottom-left plant (near kobaton)
+    &-3 { left: -9px;       top: 447px; width: 69px; height: 83px; }
+
+    // deco-4: top-right corner leaf (mirror of deco-2 position)
+    &-4 { left: auto; right: 10px;  top: 17px;  width: 52px; height: 61px; }
+
+    // deco-5: bottom-right plant (near saitamatchi)
+    &-5 { left: auto; right: -7px;  top: 456px; width: 66px; height: 83px; }
+  }
+
+  // ---- White bar ----
+  .fv-white-bar {
+    width: 100%;
+  }
+
+  // ---- Floating CTA banner ----
+  .fv-floating-banner {
+    display:         flex;
+    flex-direction:  column;
+    align-items:     center;
+    position:        absolute;
+    right:           10px;
+    top:             671px;
+    width:           370px;
+    height:          96px;
+    border-radius:   16px;
+    background:      #1fa16d;
+    overflow:        hidden;
+    text-decoration: none;
+    cursor:          pointer;
+    transition:      opacity 0.2s;
+
+    &:hover { opacity: 0.9; }
+
+    &__card {
+      position:      absolute;
+      background:    white;
+      left:          7.4px;
+      top:           5.76px;
+      width:         355.2px;
+      height:        63.36px;
+      border-radius: 10px;
+      padding:       6px;
+      box-sizing:    border-box;
+    }
+
+    &__content {
+      border:           1px dashed $ai-green-light;
+      border-radius:    6px;
+      display:          flex;
+      align-items:      center;
+      justify-content:  center;
+      gap:              8px;
+      padding:          12px 8px;
+      height:           100%;
+      box-sizing:       border-box;
+    }
+
+    &__icon {
+      width:       35px;
+      height:      34px;
+      flex-shrink: 0;
+      overflow:    hidden;
+      display:     flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width:      100%;
+        height:     100%;
+        object-fit: contain;
+      }
+    }
+
+    &__title {
+      font-family:    $font-kiwi;
+      font-weight:    500;
+      font-size:      20px;
+      color:          $ai-text;
+      letter-spacing: 0.8px;
+      line-height:    1.2;
+      white-space:    nowrap;
+      margin:         0;
+    }
+
+    &__underline {
+      border-bottom: 4px solid $ai-yellow;
+    }
+
+    &__note {
+      position:       absolute;
+      left:           50%;
+      transform:      translateX(-50%);
+      top:            79px;
+      font-family:    $font-kiwi;
+      font-weight:    500;
+      font-size:      14px;
+      color:          white;
+      letter-spacing: 0.56px;
+      line-height:    1;
+      white-space:    nowrap;
+      margin:         0;
+      text-align:     center;
+    }
+  }
+
+} // end @media (max-width: 540px)
