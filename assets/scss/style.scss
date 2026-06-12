@@ -24073,7 +24073,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(calc(-50% - 32px), calc(-50% + 22px));
+  transform: translate(-50%, calc(-50% + 42px));
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24238,21 +24238,20 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 
 .fv-kobaton {
   position: absolute;
-  height: 313px;
+  width: clamp(157px, 12.27vw, 20.86vw);
+  height: clamp(313px, 24.45vw, 41.57vw);
   left: 0;
   bottom: 188px;  // 698 - (197 + 313)
   top: auto;
-  width: 157px;
   pointer-events: none;
 
   &-img {
     position: absolute;
-    height: 214.673px;
+    width: 100%;
+    height: 100%;
     left: 0;
     top: 0;
-    width: 157px;
     object-fit: cover;
-    object-position: -116px 0;
   }
 
   &-bubble {
@@ -24273,22 +24272,21 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 
 .fv-saitamatchi {
   position: absolute;
-  height: 250px;
+  width: clamp(181px, 14.14vw, 24.04vw);
+  height: clamp(250px, 19.53vw, 33.2vw);
   left: auto;
   right: 0;       // 1099 + 181 = 1280px = right edge
   bottom: 252px;  // 698 - (196 + 250)
   top: auto;
-  width: 181px;
   pointer-events: none;
 
   &-img {
     position: absolute;
-    height: 194px;
-    left: 1px;
+    width: 100%;
+    height: 100%;
+    left: 0;
     top: 0;
-    width: 180.755px;
     object-fit: cover;
-    object-position: -108px 0;
   }
 }
 
@@ -24516,8 +24514,8 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   display: flex;
   flex-direction: column;
   gap: 40px;
-  width: 678px;
-  flex-shrink: 0;
+  max-width: 678px;
+  flex-shrink: 1;
 }
 
 .aisupport-card {
@@ -24865,6 +24863,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   width: 200px;
   height: 220px;
   pointer-events: none;
+  margin-left: calc((60px - 5%) * -7);
 }
 
 .steps-mascot-right {
@@ -24874,6 +24873,14 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   width: 200px;
   height: 256px;
   pointer-events: none;
+  margin-right: calc((60px - 5%) * -7);
+}
+
+.steps-mascot-sp img {
+  display: block;
+  pointer-events: none;
+  margin: 0 auto;
+  width: 500px;
 }
 
 .steps-mascot-left img,
@@ -24912,8 +24919,9 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   border-radius: 0 24px 24px 0;
   padding: 24px 32px 0;
   width: 376px;
-  flex-shrink: 0;
+  flex-shrink: 0.5;
   overflow: hidden;
+  margin-left: -100px;
 
   &__img {
     width: 100%;
@@ -24932,13 +24940,17 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   align-items: flex-start;
   justify-content: center;
   flex-shrink: 0;
+
+  @media (max-width: 1279px){
+    flex-shrink: 1;
+  }
 }
 
 .faq-body {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  width: 1044px;
+  max-width: 1044px;
 }
 
 .faq-group-title {
@@ -25116,6 +25128,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   flex-direction: column;
   gap: 56px;
   align-items: center;
+  margin-left: calc((60px - 2%) * 2);
 }
 
 .cta-heading {
@@ -25163,9 +25176,13 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   margin: 0;
 }
 
+.cta-deco{
+  height: 250px;
+}
+
 .cta-mascot {
   position: absolute;
-  left: 100px;
+  left: calc(100px + ((82px - 6%) * -7));
   top: 50%;
   transform: translateY(-50%);
   width: 263px;
@@ -25179,6 +25196,137 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   }
 }
 
+
+// ============================================================
+// タブレット対応 (541px – 991px)
+// ============================================================
+
+@media screen and (min-width: 541px) and (max-width: 991px) {
+
+  .ai-section-inner {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .aisupport-body{
+    flex-direction: column;
+  }
+
+  .aisupport-mascot {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 540px;
+    height: 220px;
+    pointer-events: none;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .topics-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .steps-section .ai-section-inner { 
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .steps-card{
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .faq-header{
+    flex-direction: column-reverse;
+  }
+
+  .faq-img-panel{
+    width: calc(100% + 40px);
+    margin-left: -40px;
+  }
+
+  .faq-cat-wrap {
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    border: 2px solid $ai-green;
+  }
+
+  .faq-cat-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    flex-direction: unset;
+  }
+
+  .faq-cat-tab {
+    flex: auto;
+    border: 1px solid #c0c0c0;
+    border-radius: 0;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.4;
+
+    // 右列
+    &:first-child { border-radius: 22px 0 0 0; }
+
+    &:last-child {
+      border-radius: 0;
+      border-bottom: 1px solid #c0c0c0;
+    }
+
+    // アクティブタブ
+    &--active {
+      background: $ai-bg-cream;
+      color: $ai-text;
+      border-color: $ai-green;
+      border: 1px solid $ai-green;
+      border-bottom: 2px solid $ai-green;
+    }
+  }
+
+  .faq-cat-content {
+    border: 1px solid $ai-green;
+    border-radius: 0 0 22px 22px;
+    padding: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cta-card{
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .cta-content{
+    margin: 0;
+  }
+
+  .cta-mascot {
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: translateY(-30%);
+    width: 263px;
+    height: 316px;
+    pointer-events: none;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+}
 
 // ============================================================
 // スマートフォン対応 (max-width: 540px)
@@ -25311,13 +25459,26 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   .aisupport-section .ai-section-inner { gap: 32px; }
 
   // デスクトップ用マスコットオーバーレイ非表示
-  .aisupport-mascot { display: none; }
-
   .aisupport-body {
     flex-direction: column;
     gap: 32px;
     align-items: center;
     width: 100%;
+  }
+
+  .aisupport-mascot {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 190px;
+    pointer-events: none;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
 
   .aisupport-features {
@@ -25392,7 +25553,12 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   // Section 3: Steps SP
   // ----------------------------------------------------------
 
-  .steps-section .ai-section-inner { padding: 20px; }
+  .steps-section .ai-section-inner { 
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 16px;
+  }
 
   .steps-card {
     padding: 32px 20px;
@@ -25595,11 +25761,26 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   }
 
   // デスクトップ用マスコット (absolute) 非表示
-  .cta-mascot { display: none; }
+  .cta-mascot {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translateY(-20%);
+    width: 170px;
+    height: 204px;
+    pointer-events: none;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
 
   .cta-content {
     gap: 32px;
     width: 100%;
+    margin-left: 0;
   }
 
   .cta-heading { gap: 20px; }
