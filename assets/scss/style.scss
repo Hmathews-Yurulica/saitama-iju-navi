@@ -25,7 +25,7 @@ $inner-width: 1240px;
  * 1. Add border box sizing in all browsers (opinionated).
  * 2. Backgrounds do not repeat by default (opinionated).
  */
-@import url("https://fonts.googleapis.com/css2?family=Kiwi+Maru&family=Noto+Sans+JP:wght@100..900&family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kiwi+Maru&family=Noto+Sans+JP:wght@100..900&family=Quicksand:wght@400;700&family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap");
 
 *,
 ::before,
@@ -23984,6 +23984,14 @@ $ai-border-dark:  #323232;
 
 $font-kiwi:    'Kiwi Maru', serif;
 $font-quick:   'Quicksand', sans-serif;
+$font-zarame:  'Zarame Gothic', sans-serif;
+
+@font-face {
+  font-family: 'Zarame Gothic';
+  src: url('../fonts/ざらめゴシック.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 
 // ============================================================
@@ -23993,7 +24001,12 @@ $font-quick:   'Quicksand', sans-serif;
 .fv-section {
   position: relative;
   width: 100%;
+  font-family: $font-kiwi;
   background-color: $ai-bg-cream;
+  background-image: url('../../assets/img/bkg/WF/bg_texture_pc.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-top: 1px solid #dadada;
   overflow: hidden;
   height: 85vh;
@@ -24035,10 +24048,13 @@ $font-quick:   'Quicksand', sans-serif;
 .fv-blob-area {
   position: absolute;
   aspect-ratio: 949 / 522;
-  height: auto;
-  left: 13%;      // 166 / 1280
-  top: -3%;       // -21 / 698
-  width: 79%;     // 1011 / 1280
+  height: 63.75vh;    // 75% of FV (85vh); width derives from ratio in same unit
+  min-height: 522px;
+  min-width: 949px;
+  width: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -3%;           // -21 / 698
 }
 
 .fv-blob-img {
@@ -24076,9 +24092,9 @@ $font-quick:   'Quicksand', sans-serif;
   flex-shrink: 0;
 
   &-text {
-    font-family: 'Zarame Gothic', 'M PLUS Rounded 1c', 'Rounded Mplus 1c', 'ヒラギノ丸ゴ Pro', sans-serif;
+    font-family: $font-zarame;
     font-weight: 900;
-    font-size: 38px;
+    font-size: clamp(38px, 4.88vh, 5.57vw);
     color: #288d65;
     letter-spacing: 1.9px;
     line-height: 1;
@@ -24096,9 +24112,9 @@ $font-quick:   'Quicksand', sans-serif;
   white-space: nowrap;
 
   p {
-    font-family: 'Zarame Gothic', 'M PLUS Rounded 1c', 'Rounded Mplus 1c', 'ヒラギノ丸ゴ Pro', sans-serif;
+    font-family: $font-zarame;
     font-weight: 900;
-    font-size: 70px;
+    font-size: clamp(70px, 9vh, 10.32vw);
     color: white;
     letter-spacing: 3.5px;
     line-height: 1.2;
@@ -24115,15 +24131,16 @@ $font-quick:   'Quicksand', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: clamp(4px, 0.06vh, 0.58vw);
 }
 
 .fv-desc-box {
+  font-size: clamp(15px, 2.14vh, 2.21vw);
   background: white;
-  border-right: 1px solid $ai-green;
-  border-bottom: 1px solid $ai-green;
+  border-right: 0.1em solid $ai-green;
+  border-bottom: 0.1em solid $ai-green;
   border-radius: 4px;
-  padding: 4px;
+  padding: 0.25em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24132,7 +24149,6 @@ $font-quick:   'Quicksand', sans-serif;
   p {
     font-family: $font-kiwi;
     font-weight: 500;
-    font-size: 15px;
     color: $ai-text;
     letter-spacing: 0.6px;
     line-height: 1;
@@ -25668,6 +25684,7 @@ $font-quick:   'Quicksand', sans-serif;
   // ---- Section container ----
   .fv-section {
     min-height: 777px;
+    background-image: url('../../assets/img/bkg/WF/bg_texture_sp.png');
   }
 
   // ---- Background texture ----
