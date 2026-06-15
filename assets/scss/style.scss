@@ -25959,8 +25959,9 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   position:        fixed;
   right:           20px;
   bottom:          20px;
-  width:           370px;
-  height:          96px;
+  width:           auto;
+  height:          auto;
+  padding:         6px;
   border-radius:   16px;
   background:      #1fa16d;
   overflow:        hidden;
@@ -25977,12 +25978,9 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   }
 
   &__card {
-    position:      absolute;
+    position:      relative;
     background:    white;
-    left:          7.4px;
-    top:           5.76px;
-    width:         355.2px;
-    height:        63.36px;
+    width:         auto;
     border-radius: 10px;
     padding:       6px;
     box-sizing:    border-box;
@@ -25995,7 +25993,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
     align-items:      center;
     justify-content:  center;
     gap:              8px;
-    padding:          12px 8px;
+    padding:          10px 7px;
     height:           100%;
     box-sizing:       border-box;
   }
@@ -26019,9 +26017,9 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   &__title {
     font-family:    $font-kiwi;
     font-weight:    500;
-    font-size:      20px;
+    font-size:      16px;
     color:          $ai-text;
-    letter-spacing: 0.8px;
+    letter-spacing: 0.64px;
     line-height:    1.2;
     white-space:    nowrap;
     margin:         0;
@@ -26032,10 +26030,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   }
 
   &__note {
-    position:       absolute;
-    left:           50%;
-    transform:      translateX(-50%);
-    top:            79px;
+    position:       relative;
     font-family:    $font-kiwi;
     font-weight:    500;
     font-size:      14px;
