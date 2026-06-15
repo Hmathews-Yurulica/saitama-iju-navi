@@ -24073,7 +24073,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(calc(-50% - 32px), calc(-50% + 22px));
+  transform: translate(-50%, calc(-50% + 42px));
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24238,21 +24238,20 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 
 .fv-kobaton {
   position: absolute;
-  height: 313px;
+  width: clamp(157px, min(12.27vw, 19.12vh), min(20.86vw, 32.52vh));
+  height: clamp(313px, min(24.45vw, 38.12vh), min(41.57vw, 64.84vh));
   left: 0;
-  bottom: 188px;  // 698 - (197 + 313)
+  bottom: 26.93%;  // 188px / 698px
   top: auto;
-  width: 157px;
   pointer-events: none;
 
   &-img {
     position: absolute;
-    height: 214.673px;
+    width: 100%;
+    height: 100%;
     left: 0;
     top: 0;
-    width: 157px;
     object-fit: cover;
-    object-position: -116px 0;
   }
 
   &-bubble {
@@ -24273,43 +24272,44 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 
 .fv-saitamatchi {
   position: absolute;
-  height: 250px;
+  width: clamp(181px, min(14.14vw, 22.05vh), min(24.04vw, 37.49vh));
+  height: clamp(250px, min(19.53vw, 30.45vh), min(33.2vw, 51.74vh));
   left: auto;
   right: 0;       // 1099 + 181 = 1280px = right edge
-  bottom: 252px;  // 698 - (196 + 250)
+  bottom: 36.10%;  // 252px / 698px
   top: auto;
-  width: 181px;
   pointer-events: none;
 
   &-img {
     position: absolute;
-    height: 194px;
-    left: 1px;
+    width: 100%;
+    height: 100%;
+    left: 0;
     top: 0;
-    width: 180.755px;
     object-fit: cover;
-    object-position: -108px 0;
   }
 }
 
 .fv-mascot-label {
   position: absolute;
-  top: auto;
-  bottom: 539px;  // 698 - 159; keeps label above mascots at any section height
+  bottom: calc(100% + 8px);
   font-family: $font-kiwi;
   font-weight: 500;
   color: $ai-text;
   letter-spacing: 0.7px;
+  // font-size tracks the kobaton clamp(157px, 12.27vw) ratio: 12px/157px ≈ 0.93vw
+  font-size: clamp(8px, 0.93vw, 13px);
+  white-space: nowrap;
 
   &-left  { left: 16px; }
-  &-right { left: auto; right: 15px; }
+  &-right { left: auto; right: 16px; text-align: right; }
 
   p {
     margin: 0;
     line-height: 1.2;
 
-    &:first-child { font-size: 12px; }
-    &:last-child  { font-size: 14px; }
+    &:first-child { font-size: 1em; }
+    &:last-child  { font-size: 1.17em; }
   }
 }
 
@@ -24324,11 +24324,12 @@ $font-zarame:  'Zarame Gothic', sans-serif;
     object-fit: contain;
   }
 
-  &-1 { height: 97.188px;  left: 199px;         top: 87px;       width: 76.473px; }
-  &-2 { height: 105.313px; left: 34px;          top: 23px;       width: 88.998px; }
-  &-3 { height: 127.756px; left: 80px;          bottom: 3px; top: auto; width: 111px; }
-  &-4 { height: 143.485px; left: auto; right: 92px;  top: 24px;  width: 146.362px; } // 1280-1042-146
-  &-5 { height: 121px;     left: auto; right: 50px;  bottom: 112px; top: auto; width: 95.634px; } // 1280-1134-96; bottom: 698-466-121-1
+  // reference: 1280px wide × 698px min-height (85vh)
+  &-1 { width: 5.97vw;  height: 7.59vw;  left: 15.55vw;        top: 6.80vw;    }
+  &-2 { width: 6.95vw;  height: 8.23vw;  left: 2.66vw;         top: 1.80vw;    }
+  &-3 { width: 8.67vw;  height: 9.98vw;  left: 6.25vw;         bottom: 0.23vw; top: auto; }
+  &-4 { width: 11.43vw; height: 11.21vw; left: auto; right: 7.19vw;  top: 1.88vw;    }
+  &-5 { width: 7.47vw;  height: 9.45vw;  left: auto; right: 3.91vw;  bottom: 8.75vw; top: auto; }
 }
 
 .fv-white-bar {
@@ -24516,8 +24517,8 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   display: flex;
   flex-direction: column;
   gap: 40px;
-  width: 678px;
-  flex-shrink: 0;
+  max-width: 678px;
+  flex-shrink: 1;
 }
 
 .aisupport-card {
@@ -24865,6 +24866,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   width: 200px;
   height: 220px;
   pointer-events: none;
+  margin-left: calc((60px - 5%) * -7);
 }
 
 .steps-mascot-right {
@@ -24874,6 +24876,14 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   width: 200px;
   height: 256px;
   pointer-events: none;
+  margin-right: calc((60px - 5%) * -7);
+}
+
+.steps-mascot-sp img {
+  display: block;
+  pointer-events: none;
+  margin: 0 auto;
+  width: 500px;
 }
 
 .steps-mascot-left img,
@@ -24912,8 +24922,9 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   border-radius: 0 24px 24px 0;
   padding: 24px 32px 0;
   width: 376px;
-  flex-shrink: 0;
+  flex-shrink: 0.5;
   overflow: hidden;
+  margin-left: -100px;
 
   &__img {
     width: 100%;
@@ -24932,13 +24943,18 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   align-items: flex-start;
   justify-content: center;
   flex-shrink: 0;
+
+  @media (max-width: 1279px){
+    flex-shrink: 1;
+  }
 }
 
 .faq-body {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  width: 1044px;
+  max-width: 1044px;
+  width: 100%;
 }
 
 .faq-group-title {
@@ -25069,6 +25085,10 @@ $font-zarame:  'Zarame Gothic', sans-serif;
     color: $ai-text;
     border-color: $ai-green;
     border-right: none;
+
+    &:last-child {
+      border-color: $ai-green;
+    }
   }
 }
 
@@ -25079,8 +25099,12 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   border-radius: 0 24px 24px 0;
   padding: 40px;
   flex: 1;
-  display: flex;
+  display: none;
   flex-direction: column;
+
+  &--active{
+    display: flex;
+  }
 }
 
 
@@ -25116,6 +25140,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   flex-direction: column;
   gap: 56px;
   align-items: center;
+  margin-left: calc((60px - 2%) * 2);
 }
 
 .cta-heading {
@@ -25163,9 +25188,13 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   margin: 0;
 }
 
+.cta-deco{
+  height: 250px;
+}
+
 .cta-mascot {
   position: absolute;
-  left: 100px;
+  left: calc(100px + ((82px - 6%) * -7));
   top: 50%;
   transform: translateY(-50%);
   width: 263px;
@@ -25181,6 +25210,178 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 
 
 // ============================================================
+// タブレット対応 (541px – 991px)
+// ============================================================
+
+@media screen and (min-width: 541px) and (max-width: 991px) {
+
+  .ai-section-inner {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .aisupport-body{
+    flex-direction: column;
+  }
+
+  .aisupport-mascot {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 540px;
+    height: 220px;
+    pointer-events: none;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .topics-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .steps-section .ai-section-inner { 
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .steps-card{
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .faq-header{
+    flex-direction: column-reverse;
+  }
+
+  .faq-img-panel{
+    width: calc(100% + 40px);
+    margin-left: -40px;
+  }
+
+  // ---- FV blob area ----
+  .fv-blob-area {
+    height: 43vh;
+    min-width: 600px;
+    min-height: 200px;
+    top: 3%;
+  }
+
+  // ---- FV description ----
+  .fv-description {
+    top: 54%;
+  }
+
+  // ---- FV buttons ----
+  .fv-buttons {
+    top: 70%;
+    z-index: 2;
+  }
+
+  // ---- Mascots: 10% smaller, lower vertical position ----
+  .fv-kobaton {
+    width:  clamp(141px, min(11.04vw, 17.21vh), min(18.77vw, 29.27vh));
+    height: clamp(282px, min(22.01vw, 34.31vh), min(37.41vw, 58.36vh));
+    bottom: 15%;
+  }
+
+  .fv-saitamatchi {
+    width:  clamp(163px, min(12.73vw, 19.85vh), min(21.64vw, 33.74vh));
+    height: clamp(225px, min(17.58vw, 27.41vh), min(29.88vw, 46.57vh));
+    bottom: 20%;
+  }
+
+  .faq-cat-wrap {
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    border: 2px solid $ai-green;
+  }
+
+  .faq-cat-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    flex-direction: unset;
+  }
+
+  .faq-cat-tab {
+    flex: auto;
+    border: 1px solid #c0c0c0;
+    border-radius: 0;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.4;
+
+    // 右列
+    &:first-child { border-radius: 22px 0 0 0; }
+
+    &:last-child {
+      border-radius: 0;
+      border-bottom: 1px solid #c0c0c0;
+    }
+
+    // アクティブタブ
+    &--active {
+      background: $ai-bg-cream;
+      color: $ai-text;
+      border-color: $ai-green;
+      border: 1px solid $ai-green;
+      border-bottom: 2px solid $ai-green;
+
+      &:last-child {
+        border-bottom: 2px solid $ai-green;
+      }
+    }
+  }
+
+  .faq-cat-content {
+    border: 1px solid $ai-green;
+    border-radius: 0 0 22px 22px;
+    padding: 40px;
+    flex: 1;
+    display: none;
+    flex-direction: column;
+
+
+    &--active{
+      display: flex;
+    }
+  }
+
+  .cta-card{
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .cta-content{
+    margin: 0;
+  }
+
+  .cta-mascot {
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: translateY(-30%);
+    width: 263px;
+    height: 316px;
+    pointer-events: none;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+}
+
+// ============================================================
 // スマートフォン対応 (max-width: 540px)
 // ============================================================
 
@@ -25192,48 +25393,62 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   // ----------------------------------------------------------
 
   .fv-section {
-    min-height: auto;
+    min-height: 687px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 32px 20px 40px;
+    justify-content: flex-end;
+    padding: 32px 20px 170px;
     gap: 20px;
-    overflow: visible;
+    overflow: hidden;
   }
 
   .fv-bg-texture { display: none; }
 
-  // ブロブ画像を隠し、タイトルエリアをグリーンカードに
   .fv-blob-area {
     position: relative;
     left: auto;
-    top: auto;
+    top: 5%;
     width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: $ai-green;
-    border-radius: 20px;
-    padding: 28px 20px;
-    gap: 16px;
+    justify-content: center;
+    background: none;
+    border-radius: 0;
+    padding: 0;
+    gap: 0;
+    min-height: 232px;
+    min-width: 416px;
+    margin-left: -40px;
+    margin-right: -40px;
+    transform: translateX(0);
   }
 
-  .fv-blob-img { display: none; }
+  .fv-blob-img {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 0;
+  }
 
   .fv-title-group {
     position: relative;
     left: auto;
-    top: auto;
+    top: -4%;
     transform: none;
     width: 100%;
     gap: 12px;
     align-items: center;
+    z-index: 1;
   }
 
   .fv-label {
-    border-style: dashed;
-    border-color: rgba(255, 255, 255, 0.7);
+    border: 2px dashed $ai-green;
   }
 
   .fv-label-text { font-size: 20px; }
@@ -25264,6 +25479,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
     width: 100%;
     align-items: stretch;
     gap: 16px;
+    transform: translateX(0);
   }
 
   .fv-btn-row {
@@ -25275,10 +25491,6 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   .fv-button:last-child { width: 100%; }
 
   // 装飾要素を非表示
-  .fv-kobaton,
-  .fv-saitamatchi,
-  .fv-mascot-label,
-  .fv-deco,
   .fv-white-bar { display: none; }
 
 
@@ -25311,13 +25523,26 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   .aisupport-section .ai-section-inner { gap: 32px; }
 
   // デスクトップ用マスコットオーバーレイ非表示
-  .aisupport-mascot { display: none; }
-
   .aisupport-body {
     flex-direction: column;
     gap: 32px;
     align-items: center;
     width: 100%;
+  }
+
+  .aisupport-mascot {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 190px;
+    pointer-events: none;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
 
   .aisupport-features {
@@ -25392,7 +25617,12 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   // Section 3: Steps SP
   // ----------------------------------------------------------
 
-  .steps-section .ai-section-inner { padding: 20px; }
+  .steps-section .ai-section-inner { 
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 16px;
+  }
 
   .steps-card {
     padding: 32px 20px;
@@ -25564,6 +25794,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
       &:nth-child(even) {
         border-right: none;
         border-left: 1px solid $ai-green;
+        border-bottom: 2px solid $ai-green;
       }
     }
   }
@@ -25595,11 +25826,26 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   }
 
   // デスクトップ用マスコット (absolute) 非表示
-  .cta-mascot { display: none; }
+  .cta-mascot {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translateY(-20%);
+    width: 170px;
+    height: 204px;
+    pointer-events: none;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
 
   .cta-content {
     gap: 32px;
     width: 100%;
+    margin-left: 0;
   }
 
   .cta-heading { gap: 20px; }
@@ -25666,8 +25912,104 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 
 // Text / box variants hidden on desktop, shown on SP
 .fv-desc-text--sp,
-.fv-desc-box--sp,
-.fv-floating-banner { display: none; }
+.fv-desc-box--sp { display: none; }
+
+// Floating CTA banner — fixed on all breakpoints
+.fv-floating-banner {
+  display:         flex;
+  flex-direction:  column;
+  align-items:     center;
+  position:        fixed;
+  right:           20px;
+  bottom:          20px;
+  width:           370px;
+  height:          96px;
+  border-radius:   16px;
+  background:      #1fa16d;
+  overflow:        hidden;
+  text-decoration: none;
+  cursor:          pointer;
+  z-index:         100;
+  transition:      opacity 0.4s ease;
+
+  &:hover { opacity: 0.9; }
+
+  &--hidden {
+    opacity:        0;
+    pointer-events: none;
+  }
+
+  &__card {
+    position:      absolute;
+    background:    white;
+    left:          7.4px;
+    top:           5.76px;
+    width:         355.2px;
+    height:        63.36px;
+    border-radius: 10px;
+    padding:       6px;
+    box-sizing:    border-box;
+  }
+
+  &__content {
+    border:           1px dashed $ai-green-light;
+    border-radius:    6px;
+    display:          flex;
+    align-items:      center;
+    justify-content:  center;
+    gap:              8px;
+    padding:          12px 8px;
+    height:           100%;
+    box-sizing:       border-box;
+  }
+
+  &__icon {
+    width:       35px;
+    height:      34px;
+    flex-shrink: 0;
+    overflow:    hidden;
+    display:     flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width:      100%;
+      height:     100%;
+      object-fit: contain;
+    }
+  }
+
+  &__title {
+    font-family:    $font-kiwi;
+    font-weight:    500;
+    font-size:      20px;
+    color:          $ai-text;
+    letter-spacing: 0.8px;
+    line-height:    1.2;
+    white-space:    nowrap;
+    margin:         0;
+  }
+
+  &__underline {
+    border-bottom: 4px solid $ai-yellow;
+  }
+
+  &__note {
+    position:       absolute;
+    left:           50%;
+    transform:      translateX(-50%);
+    top:            79px;
+    font-family:    $font-kiwi;
+    font-weight:    500;
+    font-size:      14px;
+    color:          white;
+    letter-spacing: 0.56px;
+    line-height:    1;
+    white-space:    nowrap;
+    margin:         0;
+    text-align:     center;
+  }
+}
 
 
 // ============================================================
@@ -25683,7 +26025,6 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 
   // ---- Section container ----
   .fv-section {
-    min-height: 777px;
     background-image: url('../../assets/img/bkg/WF/bg_texture_sp.png');
   }
 
@@ -25776,12 +26117,13 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   // ---- Kobaton (left mascot) ----
   .fv-kobaton {
     left:   0;
+    bottom: 58px;
     width:  83px;
-    height: 113px;
+    height: 166px;
 
     &-img {
-      width:           83px;
-      height:          113px;
+      width:           100%;
+      height:          100%;
       object-fit:      contain;
       object-position: left top;
       left:            0;
@@ -25792,12 +26134,13 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   // ---- Saitamatchi (right mascot) ----
   .fv-saitamatchi {
     left:   auto;
-    width:  94px;
-    height: 100px;
+    bottom: 84px;
+    width:  93px;
+    height: 128px;
 
     &-img {
-      width:           94px;
-      height:          100px;
+      width:           100%;
+      height:          100%;
       object-fit:      contain;
       object-position: right top;
       left:            auto;
@@ -25809,30 +26152,30 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   // ---- Mascot labels ----
   .fv-mascot-label {
     font-size: 10px;
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
 
-    p:first-child { font-size: 10px; }
-    p:last-child  { font-size: 10px; }
-
-    &-left  { left: 88px;  top: 628px; }
-    &-right { left: 218px; top: 628px; }
+    &-left  { left: calc(100% - 6px); right: auto; text-align: left; }
+    &-right { right: calc(100% - 6px); left: auto; text-align: right; }
   }
 
   // ---- Decorative elements ----
   .fv-deco {
-    // deco-1 (center flower): not needed on SP
-    &-1 { display: none; }
+    &-1 { display: block; left: auto; right: 27vw;   top: auto; bottom: 680px; width: 12.97vw; height: 16.59vw; }
 
+    // reference: 390px wide × 777px min-height
     // deco-2: top-left corner leaf
-    &-2 { left: 16px;       top: 17px;  width: 52px; height: 61px; }
+    &-2 { left: 4.10vw;  top: auto; bottom: 680px; width: 13.33vw; height: 15.64vw; }
 
     // deco-3: bottom-left plant (near kobaton)
-    &-3 { left: -9px;       top: 447px; width: 69px; height: 83px; }
+    &-3 { left: -2.31vw; bottom: 260px; top: auto; width: 17.69vw; height: 21.28vw; }
 
-    // deco-4: top-right corner leaf (mirror of deco-2 position)
-    &-4 { left: auto; right: 10px;  top: 17px;  width: 52px; height: 61px; }
+    // deco-4: right plant
+    &-4 { left: auto; right: -5.44vw; bottom: 349px; top: auto; width: 19.33vw; height: 19.64vw; }
 
     // deco-5: bottom-right plant (near saitamatchi)
-    &-5 { left: auto; right: -7px;  top: 456px; width: 66px; height: 83px; }
+    &-5 { left: auto; right: -1.79vw; bottom: 234px; top: auto; width: 16.92vw; height: 21.28vw; }
   }
 
   // ---- White bar ----
@@ -25842,22 +26185,11 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 
   // ---- Floating CTA banner ----
   .fv-floating-banner {
-    display:         flex;
-    flex-direction:  column;
-    align-items:     center;
-    position:        absolute;
-    right:           10px;
-    top:             671px;
-    width:           370px;
-    height:          96px;
-    border-radius:   16px;
-    background:      #1fa16d;
-    overflow:        hidden;
-    text-decoration: none;
-    cursor:          pointer;
-    transition:      opacity 0.2s;
-
-    &:hover { opacity: 0.9; }
+    width:  calc(100vw - 20px);
+    right:  auto;
+    bottom: 10px;
+    left:   50%;
+    transform: translateX(-50%);
 
     &__card {
       position:      absolute;

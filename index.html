@@ -280,15 +280,6 @@
     <!-- ==================== FV HERO ==================== -->
 
     <section class="fv-section" id="fv">
-      <!-- Background texture -->
-      <div class="fv-bg-texture">
-        <div class="fv-bg-texture-inner">
-          <div class="fv-bg-texture-rotate">
-            <img class="fv-bg-texture-img" src="https://www.figma.com/api/mcp/asset/5e876d75-aa2d-42d5-81c9-f197e7c515ca" alt="">
-          </div>
-        </div>
-      </div>
-
       <!-- Green blob + main title -->
       <div class="fv-blob-area">
         <img class="fv-blob-img" src="https://www.figma.com/api/mcp/asset/70dc2e99-22c1-4f2e-9198-2f7c51b57935" alt="">
@@ -329,56 +320,39 @@
 
       <!-- Kobaton (left mascot) -->
       <div class="fv-kobaton">
+        <div class="fv-mascot-label fv-mascot-label-left">
+          <p>埼玉県マスコット</p>
+          <p>「コバトン」</p>
+        </div>
         <img class="fv-kobaton-img" src="assets/img/02_png/WF/kobaton_img.png" alt="埼玉県マスコット コバトン">
       </div>
 
       <!-- Saitamatchi (right mascot) -->
       <div class="fv-saitamatchi">
-        <img class="fv-saitamatchi-img" src="https://www.figma.com/api/mcp/asset/ad78e780-9293-46de-873c-104d11ae0fca" alt="埼玉県マスコット さいたまっち">
-      </div>
-
-      <!-- Mascot labels -->
-      <div class="fv-mascot-label fv-mascot-label-left">
-        <p>埼玉県マスコット</p>
-        <p>「コバトン」</p>
-      </div>
-      <div class="fv-mascot-label fv-mascot-label-right">
-        <p>埼玉県マスコット</p>
-        <p>「さいたまっち」</p>
+        <div class="fv-mascot-label fv-mascot-label-right">
+          <p>埼玉県マスコット</p>
+          <p>「さいたまっち」</p>
+        </div>
+        <img class="fv-saitamatchi-img" src="assets/img/02_png/WF/saitamatchi_img.png" alt="埼玉県マスコット さいたまっち">
       </div>
 
       <!-- Decorative elements -->
       <div class="fv-deco fv-deco-5">
-        <img src="https://www.figma.com/api/mcp/asset/efe9ffe9-629e-45e4-8630-3bd6b6303e52" alt="">
+        <img src="assets/img/01_svg/WF/bg_deco_5.svg" alt="">
       </div>
       <div class="fv-deco fv-deco-4">
-        <img src="https://www.figma.com/api/mcp/asset/664f1576-f42c-4e95-9650-be29a1fb27e7" alt="">
+        <img src="assets/img/01_svg/WF/bg_deco_4.svg" alt="">
       </div>
       <div class="fv-deco fv-deco-3">
-        <img src="https://www.figma.com/api/mcp/asset/ceef4df2-8450-4d9d-b3c5-be063c9aaf21" alt="">
+        <img src="assets/img/01_svg/WF/bg_deco_3.svg" alt="">
       </div>
       <div class="fv-deco fv-deco-2">
-        <img src="https://www.figma.com/api/mcp/asset/dbf0c813-2905-42fb-ba49-22069deaa18a" alt="">
+        <img src="assets/img/01_svg/WF/bg_deco_2.svg" alt="">
       </div>
       <div class="fv-deco fv-deco-1">
-        <img src="https://www.figma.com/api/mcp/asset/a104dd1f-a1c6-4ea3-80d5-0b976c857bc1" alt="">
+        <img src="assets/img/01_svg/WF/bg_deco_1.svg" alt="">
       </div>
 
-      <!-- White bar at bottom -->
-      <div class="fv-white-bar"></div>
-
-      <!-- Floating CTA banner (SP only) -->
-      <a href="#chat" class="fv-floating-banner">
-        <div class="fv-floating-banner__card">
-          <div class="fv-floating-banner__content">
-            <div class="fv-floating-banner__icon">
-              <img src="https://www.figma.com/api/mcp/asset/fa9ae4bd-3acc-4193-906c-6a834b076dbb" alt="">
-            </div>
-            <p class="fv-floating-banner__title"><span class="fv-floating-banner__underline">AIコンシェルジュ</span>に相談する</p>
-          </div>
-        </div>
-        <p class="fv-floating-banner__note">※チャットウインドウが開きます</p>
-      </a>
     </section>
     <!-- ==================== /FV HERO ==================== -->
 
@@ -387,7 +361,7 @@
     <!-- SECTION 1: AI Support -->
     <section class="ai-section aisupport-section" id="ai-support">
       <div class="ai-section-inner">
-        <div class="aisupport-mascot">
+        <div class="aisupport-mascot is-pc">
           <img src="https://www.figma.com/api/mcp/asset/55e8f059-a245-4e79-9281-ed57bfce6aca" alt="">
         </div>
         <div class="sec-heading-group">
@@ -438,6 +412,9 @@
             <p class="aisupport-chat__note">※表示内容はイメージです。</p>
           </div>
         </div>
+        <div class="aisupport-mascot is-tabsp">
+          <img src="https://www.figma.com/api/mcp/asset/55e8f059-a245-4e79-9281-ed57bfce6aca" alt="">
+        </div>
       </div>
     </section>
 
@@ -449,7 +426,7 @@
             <div class="sec-heading-group__inner">
               <span class="sec-badge">Saitama Relocation</span>
               <div class="sec-heading-group__title-wrap">
-                <h2 class="sec-h2">埼玉の暮らしに関する<br class="is-sp">こと、何でも聞けます</h2>
+                <h2 class="sec-h2">埼玉の暮らしに関する<br class="is-sp">こと、<br class="is-tab">何でも聞けます</h2>
                 <hr class="sec-divider">
               </div>
             </div>
@@ -465,7 +442,7 @@
             </div>
             <div class="topics-item">
               <div class="topics-item__icon"><img src="assets/img/icons/WF/relocation_icon_3.svg" alt=""></div>
-              <p class="topics-item__label">就業・転職・<br>起業・就農</p>
+              <p class="topics-item__label">就業・転職・<br class="is-pc">起業・就農</p>
             </div>
             <div class="topics-item">
               <div class="topics-item__icon"><img src="assets/img/icons/WF/relocation_icon_4.svg" alt=""></div>
@@ -489,8 +466,8 @@
     <section class="ai-section steps-section" id="ai-steps">
       <div class="ai-section-inner">
         <div class="steps-card">
-          <div class="steps-mascot-left"><img src="https://www.figma.com/api/mcp/asset/3ada32fa-d4e0-42d9-8938-0d578c62db47" alt=""></div>
-          <div class="steps-mascot-right"><img src="https://www.figma.com/api/mcp/asset/418ce7b6-f794-4bf7-a9f4-5a375bc3264d" alt=""></div>
+          <div class="steps-mascot-left is-pc"><img src="assets/img/02_png/WF/step_img_1.png" alt=""></div>
+          <div class="steps-mascot-right is-pc"><img src="assets/img/02_png/WF/step_img_2.png" alt=""></div>
           <div class="sec-heading-group">
             <div class="sec-heading-group__inner">
               <span class="sec-badge sec-badge--outline">カンタン3ステップ！</span>
@@ -527,6 +504,7 @@
             </div>
           </div>
         </div>
+        <div class="steps-mascot-sp is-tabsp"><img src="assets/img/02_png/WF/step_img_sp.png" alt=""></div>
       </div>
     </section>
 
@@ -555,15 +533,15 @@
           </div>
           <div class="faq-list-box">
             <div class="faq-row">
-              <button class="faq-copy-btn" onclick="navigator.clipboard.writeText('一人暮らしにおすすめのエリアはどこ？')">コピー</button>
+              <button class="faq-copy-btn">コピー</button>
               <p class="faq-q-text">一人暮らしにおすすめのエリアはどこ？</p>
             </div>
             <div class="faq-row">
-              <button class="faq-copy-btn" onclick="navigator.clipboard.writeText('埼玉への移住がきになってる。何から考えればいい？')">コピー</button>
+              <button class="faq-copy-btn">コピー</button>
               <p class="faq-q-text">埼玉への移住がきになってる。何から考えればいい？</p>
             </div>
             <div class="faq-row">
-              <button class="faq-copy-btn" onclick="navigator.clipboard.writeText('家賃を抑えつつ、生活の質を上げられるおすすめの街は？')">コピー</button>
+              <button class="faq-copy-btn">コピー</button>
               <p class="faq-q-text">家賃を抑えつつ、生活の質を上げられるおすすめの街は？</p>
             </div>
           </div>
@@ -580,26 +558,142 @@
               <div class="faq-cat-tab">エリア・市町村選び</div>
               <div class="faq-cat-tab">はじめての住み替え相談</div>
             </div>
-            <div class="faq-cat-content">
+            <!-- Tab 0: 住まい・暮らし -->
+            <div class="faq-cat-content faq-cat-content--active" data-tab="0">
               <div class="faq-row">
-                <button class="faq-copy-btn" onclick="navigator.clipboard.writeText('家賃相場はどのくらい？東京と比べてどれくらい抑えられる？')">コピー</button>
+                <button class="faq-copy-btn">コピー</button>
                 <p class="faq-q-text">家賃相場はどのくらい？東京と比べてどれくらい抑えられる？</p>
               </div>
               <div class="faq-row">
-                <button class="faq-copy-btn" onclick="navigator.clipboard.writeText('「住むなら埼玉！応援パートナー」ってどんなサポートが受けられる?')">コピー</button>
+                <button class="faq-copy-btn">コピー</button>
                 <p class="faq-q-text">「住むなら埼玉！応援パートナー」ってどんなサポートが受けられる?</p>
               </div>
               <div class="faq-row">
-                <button class="faq-copy-btn" onclick="navigator.clipboard.writeText('「平日は都内、週末は埼玉」のような二地域居住はできる？')">コピー</button>
+                <button class="faq-copy-btn">コピー</button>
                 <p class="faq-q-text">「平日は都内、週末は埼玉」のような二地域居住はできる？</p>
               </div>
               <div class="faq-row">
-                <button class="faq-copy-btn" onclick="navigator.clipboard.writeText('都心に通いやすくて自然も近いエリアの特徴を教えて')">コピー</button>
+                <button class="faq-copy-btn">コピー</button>
                 <p class="faq-q-text">都心に通いやすくて自然も近いエリアの特徴を教えて</p>
               </div>
               <div class="faq-row">
-                <button class="faq-copy-btn" onclick="navigator.clipboard.writeText('家族向けの広い間取り(3LDK以上)が見つかりやすいエリアの傾向は？')">コピー</button>
+                <button class="faq-copy-btn">コピー</button>
                 <p class="faq-q-text">家族向けの広い間取り(3LDK以上)が見つかりやすいエリアの傾向は？</p>
+              </div>
+            </div>
+            <!-- Tab 1: 仕事・はたらき方 -->
+            <div class="faq-cat-content" data-tab="1">
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">埼玉在住で東京へ通勤する場合、通勤時間の目安は？</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">テレワーク・リモートワークに対応したコワーキングスペースはある？</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">埼玉県内で就職・転職を考えた場合、どんな業種が多い？</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">副業・フリーランスとして働きながら埼玉に住むことはできる？</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">農業・地域おこしに関わる仕事に就くにはどうすればいい？</p>
+              </div>
+            </div>
+            <!-- Tab 2: 子育て・教育 -->
+            <div class="faq-cat-content" data-tab="2">
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">保育園・幼稚園の待機児童状況は東京と比べてどう？</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">小中学校の教育環境・学力レベルについて教えて</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">子育て世帯向けの医療費助成制度はある？</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">放課後の子どもの居場所（学童・放課後クラブ）はどう？</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">公園や自然体験ができる施設が充実しているエリアはどこ？</p>
+              </div>
+            </div>
+            <!-- Tab 3: 支援金・補助制度 -->
+            <div class="faq-cat-content" data-tab="3">
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">埼玉県の移住支援金はいくらもらえる？条件は？</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">住宅購入・リフォームの補助金制度を教えて</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">空き家バンクを利用した場合の補助はある？</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">起業・創業を目指す場合の支援制度はある？</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">市町村ごとに独自の補助制度はある？どう調べればいい？</p>
+              </div>
+            </div>
+            <!-- Tab 4: エリア・市町村選び -->
+            <div class="faq-cat-content" data-tab="4">
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">東京への通勤に便利な路線・エリアを教えて</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">自然が豊かで静かな環境に住めるエリアはどこ？</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">子育てしやすい市町村のランキングや特徴を教えて</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">買い物や医療など生活利便性が高いエリアはどこ？</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">地価・家賃が比較的安いエリアはどのあたり？</p>
+              </div>
+            </div>
+            <!-- Tab 5: はじめての住み替え相談 -->
+            <div class="faq-cat-content" data-tab="5">
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">移住を検討し始めたら、まず何をすればいい？</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">移住前に埼玉に住んでみる「お試し移住」はできる？</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">引っ越し費用の目安と節約のポイントを教えて</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">賃貸と購入、どちらが移住初心者に向いている？</p>
+              </div>
+              <div class="faq-row">
+                <button class="faq-copy-btn">コピー</button>
+                <p class="faq-q-text">移住相談窓口やイベントはどこで探せばいい？</p>
               </div>
             </div>
           </div>
@@ -611,7 +705,7 @@
     <section class="ai-section cta-section" id="ai-cta">
       <div class="ai-section-inner">
         <div class="cta-card">
-          <div class="cta-mascot" style="margin-left:-40px;"><img src="assets/img/02_png/WF/cta_img.png" alt=""></div>
+          <div class="cta-mascot is-pc"><img src="assets/img/02_png/WF/cta_img.png" alt=""></div>
           <div class="cta-content">
             <div class="cta-heading">
               <div class="cta-title-wrap">
@@ -629,10 +723,26 @@
             </div>
           </div>
         </div>
+        <div class="cta-deco is-tabsp">
+          <div class="cta-mascot"><img src="assets/img/02_png/WF/cta_img.png" alt=""></div>
+        </div>
       </div>
     </section>
     <!-- ==================== /SECTIONS 1-5 ==================== -->
   </main>
+
+  <!-- ==================== FLOATING CTA BANNER ==================== -->
+  <a href="#chat" class="fv-floating-banner">
+    <div class="fv-floating-banner__card">
+      <div class="fv-floating-banner__content">
+        <div class="fv-floating-banner__icon">
+          <img src="https://www.figma.com/api/mcp/asset/fa9ae4bd-3acc-4193-906c-6a834b076dbb" alt="">
+        </div>
+        <p class="fv-floating-banner__title"><span class="fv-floating-banner__underline">AIコンシェルジュ</span>に相談する</p>
+      </div>
+    </div>
+    <p class="fv-floating-banner__note">※チャットウインドウが開きます</p>
+  </a>
 
   <!-- ==================== FOOTER ==================== -->
   <footer class="footer l-footer">

@@ -7,6 +7,45 @@
 
 jQuery(function ($) {
 
+	// フローティングバナー：フッターが見えたら非表示
+	var $floatingBanner = $('.fv-floating-banner');
+	if ($floatingBanner.length && 'IntersectionObserver' in window) {
+		var footerObserver = new IntersectionObserver(function (entries) {
+			entries.forEach(function (entry) {
+				$floatingBanner.toggleClass('fv-floating-banner--hidden', entry.isIntersecting);
+			});
+		}, { threshold: 0 });
+		footerObserver.observe(document.querySelector('.l-footer'));
+	}
+
+	// FAQ カテゴリタブ切り替え
+	if ($('.faq-cat-tab').length) {
+		$('.faq-cat-tab').on('click', function () {
+			var idx = $(this).index();
+			$('.faq-cat-tab').removeClass('faq-cat-tab--active');
+			$(this).addClass('faq-cat-tab--active');
+			$('.faq-cat-content').removeClass('faq-cat-content--active');
+			$('.faq-cat-content[data-tab="' + idx + '"]').addClass('faq-cat-content--active');
+		});
+	}
+
+	// FAQ コピーボタン：クリップボードコピー＋ツールチップ表示
+	$(document).on('click', '.faq-copy-btn', function (e) {
+		var $btn = $(this);
+		var text = $btn.siblings('.faq-q-text').text();
+		navigator.clipboard.writeText(text);
+
+		var $text = $btn.siblings('.faq-q-text');
+		$text.find('.faq-copy-tooltip').remove();
+		var $tip = $('<span class="faq-copy-tooltip">コピーしました！</span>');
+		$text.append($tip);
+
+		// アニメーション終了後にツールチップを削除
+		$tip.on('animationend', function () {
+			$(this).remove();
+		});
+	});
+
 	// ハンバーガーメニュー（SP）
 	let navButton = $("#js-nav-button");
 	let globalNav = $(".global-nav");
