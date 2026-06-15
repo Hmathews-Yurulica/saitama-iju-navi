@@ -25031,6 +25031,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 }
 
 .faq-q-text {
+  position: relative;
   font-family: $font-kiwi;
   font-weight: 500;
   font-size: 16px;
@@ -25039,6 +25040,42 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   line-height: 1.6;
   margin: 0;
   flex: 1;
+}
+
+.faq-copy-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: #323232;
+  color: #fff;
+  font-family: $font-kiwi;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  padding: 4px 12px 6px;
+  border-radius: 6px;
+  pointer-events: none;
+  opacity: 0;
+  animation: faq-tooltip-in-out 2.35s ease forwards;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #323232;
+  }
+}
+
+@keyframes faq-tooltip-in-out {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(8px); }
+  8.5% { opacity: 1; transform: translateX(-50%) translateY(-5px); }
+  15%  { opacity: 1; transform: translateX(-50%) translateY(0px); }
+  79%  { opacity: 1; transform: translateX(-50%) translateY(0px); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
 }
 
 .faq-cat-wrap {
