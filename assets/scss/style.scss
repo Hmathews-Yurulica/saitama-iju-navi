@@ -24118,7 +24118,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
     color: white;
     letter-spacing: 3.5px;
     line-height: 1.2;
-    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25);
+    text-shadow: 0.028em 0.028em 0px rgba(0, 0, 0, 0.25);
     margin: 0;
   }
 }
@@ -24847,7 +24847,6 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 
   img {
     width: 13px;
-    transform: rotate(90deg);
     object-fit: contain;
   }
 }
@@ -24921,10 +24920,11 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   background: $ai-green-light;
   border-radius: 0 24px 24px 0;
   padding: 24px 32px 0;
-  width: 376px;
+  width: calc(376px + (100vw - 1280px));
   flex-shrink: 0.5;
   overflow: hidden;
   margin-left: -100px;
+  padding-left: calc(32px + ((100vw - 1280px) / 2));
 
   &__img {
     width: 100%;
@@ -25962,6 +25962,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   width:           auto;
   height:          auto;
   padding:         6px;
+  gap:             6px;
   border-radius:   16px;
   background:      #1fa16d;
   overflow:        hidden;
@@ -26217,81 +26218,37 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 
   // ---- Floating CTA banner ----
   .fv-floating-banner {
-    width:  calc(100vw - 20px);
-    right:  auto;
-    bottom: 10px;
-    left:   50%;
+    width:     calc(100vw - 20px);
+    height:    auto;
+    padding:   6px;
+    gap:       6px;
+    right:     auto;
+    bottom:    10px;
+    left:      50%;
     transform: translateX(-50%);
 
     &__card {
-      position:      absolute;
-      background:    white;
-      left:          7.4px;
-      top:           5.76px;
-      width:         355.2px;
-      height:        63.36px;
+      position:      relative;
+      width:         100%;
       border-radius: 10px;
       padding:       6px;
       box-sizing:    border-box;
     }
 
     &__content {
-      border:           1px dashed $ai-green-light;
-      border-radius:    6px;
-      display:          flex;
-      align-items:      center;
-      justify-content:  center;
-      gap:              8px;
-      padding:          12px 8px;
-      height:           100%;
-      box-sizing:       border-box;
-    }
-
-    &__icon {
-      width:       35px;
-      height:      34px;
-      flex-shrink: 0;
-      overflow:    hidden;
-      display:     flex;
-      align-items: center;
-      justify-content: center;
-
-      img {
-        width:      100%;
-        height:     100%;
-        object-fit: contain;
-      }
+      width:   100%;
+      padding: 10px 7px;
     }
 
     &__title {
-      font-family:    $font-kiwi;
-      font-weight:    500;
-      font-size:      20px;
-      color:          $ai-text;
-      letter-spacing: 0.8px;
-      line-height:    1.2;
+      // fills single line: available ≈ (100vw - 87px) across ~12 char-widths
+      font-size:      calc((100vw - 132px) / 12);
+      letter-spacing: 0;
       white-space:    nowrap;
-      margin:         0;
-    }
-
-    &__underline {
-      border-bottom: 4px solid $ai-yellow;
     }
 
     &__note {
-      position:       absolute;
-      left:           50%;
-      transform:      translateX(-50%);
-      top:            79px;
-      font-family:    $font-kiwi;
-      font-weight:    500;
-      font-size:      14px;
-      color:          white;
-      letter-spacing: 0.56px;
-      line-height:    1;
-      white-space:    nowrap;
-      margin:         0;
-      text-align:     center;
+      position: relative;
     }
   }
 
