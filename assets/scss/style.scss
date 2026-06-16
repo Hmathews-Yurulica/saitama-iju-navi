@@ -24203,7 +24203,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   cursor: pointer;
   transition: opacity 0.2s;
 
-  &:hover { opacity: 0.85; }
+  &:hover { opacity: 0.6; }
 
   &:last-child { width: 285px; }
 
@@ -24340,7 +24340,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   &-2 { width: 6.95vw;  height: 8.23vw;  left: 2.66vw;         top: 1.80vw;    }
   &-3 { width: 8.67vw;  height: 9.98vw;  left: 6.25vw;         bottom: 0.23vw; top: auto; }
   &-4 { width: 11.43vw; height: 11.21vw; left: auto; right: 7.19vw;  top: 1.88vw;    }
-  &-5 { width: 7.47vw;  height: 9.45vw;  left: auto; right: 3.91vw;  bottom: 8.75vw; top: auto; }
+  &-5 { width: 7.47vw;  height: 9.45vw;  left: auto; right: 5.61vw;  bottom: 8.75vw; top: auto; }
 }
 
 .fv-white-bar {
@@ -25289,6 +25289,20 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 
 
 // ============================================================
+// 992px – 1200px: aisupport fluid adjustments
+// ============================================================
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .aisupport-mascot {
+    left: clamp(15px, calc(40.87vw - 390.4px), 100px);
+  }
+
+  .aisupport-section .sec-heading-group {
+    margin-left: clamp(0px, calc(346.2px - 28.85vw), 60px);
+  }
+}
+
+// ============================================================
 // タブレット対応 (541px – 991px)
 // ============================================================
 
@@ -25450,11 +25464,25 @@ $font-zarame:  'Zarame Gothic', sans-serif;
     width: 263px;
     height: 316px;
     pointer-events: none;
+    float: left;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: contain;
+    }
+  }
+
+  .cta-deco__tree{
+    float: right;
+    width: 240px;
+    height: 240px;
+    top: 51px;
+    position: relative;
+    
+    img{
+      height: 100%;
+      width: 100%;
     }
   }
 
@@ -25913,12 +25941,30 @@ $font-zarame:  'Zarame Gothic', sans-serif;
     width: 170px;
     height: 204px;
     pointer-events: none;
+    float: left;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: contain;
     }
+  }
+
+  .cta-deco__tree{
+    float: right;
+    width: 140px;
+    height: 140px;
+    top: 51px;
+    position: relative;
+    
+    img{
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .cta-deco{
+    height: 150px;
   }
 
   .cta-content {
