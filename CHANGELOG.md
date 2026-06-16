@@ -12,6 +12,9 @@
 ### 予定
 - AIチャットボットの実装（Anthropic Claude）
 
+### 変更
+- `assets/scss/style.scss` から未使用セレクタを削除し、ファイルサイズを削減（26,376行 → 8,908行）。`route-map-*`、検索結果・WordPressページテンプレート系（`page-*`、`section-*` 等）の旧セレクタを除去。ヘッダー/フッター/ナビ、`index.html` の各セクション（fv/aisupport/topics/steps/faq/cta）、`script.js`/`plugins.js` が参照するクラス（slick、modaal、フォーム関連）は保持。`assets/css/style.css` は変更なし。
+
 ---
 
 ## [0.7.0] - 2026-06-16
