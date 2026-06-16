@@ -24940,6 +24940,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   overflow: hidden;
   margin-left: -100px;
   padding-left: calc(32px + ((100vw - 1280px) / 2));
+  min-width: 240px;
 
   &__img {
     width: 100%;
