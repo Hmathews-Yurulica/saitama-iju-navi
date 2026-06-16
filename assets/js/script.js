@@ -35,10 +35,9 @@ jQuery(function ($) {
 		var text = $btn.siblings('.faq-q-text').text();
 		navigator.clipboard.writeText(text);
 
-		var $text = $btn.siblings('.faq-q-text');
-		$text.find('.faq-copy-tooltip').remove();
+		$btn.find('.faq-copy-tooltip').remove();
 		var $tip = $('<span class="faq-copy-tooltip">コピーしました！</span>');
-		$text.append($tip);
+		$btn.append($tip);
 
 		// アニメーション終了後にツールチップを削除
 		$tip.on('animationend', function () {
@@ -339,47 +338,7 @@ jQuery(function ($) {
 		$(this).next('.area-sidebar-wrap').slideToggle();
 	});
 
-	// アンカースクロール（ヘッダー高さ考慮）
-	$(document).on('click', 'a[href^="#"]:not([href^="#modal"])', function (event) {
-		const href = $(this).attr('href');
-		const $target = $(href === '#' ? 'html' : href);
-		if (href !== '#' && !$target.length) { return; }
-
-		event.preventDefault();
-
-		const headerHeight        = $('#js-header').height() || 0;
-		const headerWrapperHeight = $('#js-header-wrapper').height() || 0;
-		let translateYNumber      = 0;
-		const transformValue      = $('.global-nav').css('transform');
-		if (transformValue && transformValue !== 'none') {
-			const match = transformValue.match(/matrix.*,\s*(-?\d+(?:\.\d+)?)\)$/);
-			if (match) { translateYNumber = parseFloat(match[1]); }
-		}
-		const apparentHeight = headerWrapperHeight - (-translateYNumber);
-
-		if (href === '#') {
-			$('body,html').animate({ scrollTop: 0 }, 800, 'swing');
-			return;
-		}
-
-		const targetOffset = $target.offset().top;
-		let position = targetOffset;
-
-		if (window.innerWidth > 1100 && $(window).scrollTop() > targetOffset) {
-			position = targetOffset - apparentHeight;
-		} else if (window.innerWidth > 767 && window.innerWidth <= 1100 && $(window).scrollTop() > targetOffset) {
-			position = targetOffset;
-		} else {
-			position = targetOffset - headerHeight;
-		}
-
-		$('body,html').animate({ scrollTop: position }, 800, 'swing', function () {
-			if (!$target.is(':focusable')) {
-				$target.attr('tabindex', '-1');
-			}
-			$target.focus();
-		});
-	});
+	// スムーズスクロールはCSS scroll-behavior: smooth で処理
 
 	// ハッシュ付き URL でのヘッダー調整
 	if (window.location.hash) {
@@ -431,7 +390,7 @@ jQuery(function ($) {
 		}
 	});
 	pageTopArrow.click(function () {
-		$('body, html').animate({ scrollTop: 0 }, 500);
+		window.scrollTo({ top: 0, behavior: 'smooth' });
 		return false;
 	});
 

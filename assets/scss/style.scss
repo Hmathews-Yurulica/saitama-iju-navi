@@ -387,6 +387,12 @@ $inner-width: 1240px;
 html {
   height: 100%;
   font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 184px;
+
+  @media screen and (max-width: 1100px) {
+    scroll-padding-top: 64px;
+  }
 }
 
 body {
@@ -24047,6 +24053,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 
 .fv-blob-area {
   position: absolute;
+  z-index: 2;
   aspect-ratio: 949 / 522;
   height: 63.75vh;    // 75% of FV (85vh); width derives from ratio in same unit
   min-height: 522px;
@@ -24125,6 +24132,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 
 .fv-description {
   position: absolute;
+  z-index: 2;
   left: 50%;
   top: 62.9%;     // 439 / 698
   transform: translateX(-50%);
@@ -24160,6 +24168,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 
 .fv-buttons {
   position: absolute;
+  z-index: 3;
   left: 50%;
   top: 79.7%;     // 556 / 698
   transform: translateX(-50%);
@@ -24219,9 +24228,8 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 
   &-line {
     flex: 1 0 0;
-    height: 1px;
-    background: $ai-text;
-    opacity: 0.4;
+    height: 0;
+    border-top: 2px dashed #FFCC52;
     min-width: 1px;
   }
 
@@ -24238,6 +24246,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 
 .fv-kobaton {
   position: absolute;
+  z-index: 2;
   width: clamp(157px, min(12.27vw, 19.12vh), min(20.86vw, 32.52vh));
   height: clamp(313px, min(24.45vw, 38.12vh), min(41.57vw, 64.84vh));
   left: 0;
@@ -24272,6 +24281,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 
 .fv-saitamatchi {
   position: absolute;
+  z-index: 2;
   width: clamp(181px, min(14.14vw, 22.05vh), min(24.04vw, 37.49vh));
   height: clamp(250px, min(19.53vw, 30.45vh), min(33.2vw, 51.74vh));
   left: auto;
@@ -24315,6 +24325,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 
 .fv-deco {
   position: absolute;
+  z-index: 1;
   pointer-events: none;
 
   img {
@@ -24594,7 +24605,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 .aisupport-chat {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 0;
   align-items: center;
   flex-shrink: 0;
 
@@ -24702,7 +24713,11 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 // ============================================================
 
 .topics-section {
-  background: $ai-bg-cream;
+  background-color: $ai-bg-cream;
+  background-image: url('../../assets/img/bkg/WF/bg_texture_pc.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   .ai-section-inner {
     display: flex;
@@ -24997,7 +25012,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   align-items: center;
   padding: 20px 0;
 
-  & + & { border-top: 1px dashed rgba($ai-green, 0.4); }
+  & + & { border-top: 2px solid #fff; }
 
   &:first-child{
     padding-top: 0;
@@ -25009,6 +25024,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 }
 
 .faq-copy-btn {
+  position: relative;
   background: $ai-yellow;
   border-top: 1px solid $ai-border-dark;
   border-left: 1px solid $ai-border-dark;
@@ -25097,6 +25113,26 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   align-items: center;
   justify-content: center;
   padding: 20px 24px;
+  &__label {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: $ai-yellow;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.2s ease-out;
+    }
+  }
+
+  &:hover &__label::after {
+    transform: scaleX(1);
+  }
   font-family: $font-kiwi;
   font-weight: 500;
   font-size: 20px;
@@ -25120,11 +25156,17 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   &--active {
     background: $ai-bg-cream;
     color: $ai-text;
-    border-color: $ai-green;
+    border-top: 2px solid $ai-green;
+    border-bottom: 2px solid $ai-green;
+    border-left: 2px solid $ai-green;
     border-right: none;
 
     &:last-child {
       border-color: $ai-green;
+    }
+
+    & + .faq-cat-tab {
+      border-top: none;
     }
   }
 }
@@ -25689,7 +25731,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
     }
 
     &__text {
-      font-size: 14px;
+      font-size: clamp(1px, calc((100vw - 110px) / 20), 14px);
       text-align: center;
     }
   }
@@ -25900,6 +25942,11 @@ $font-zarame:  'Zarame Gothic', sans-serif;
     &.has-icon{
       padding: 4px 24px;
       padding-left: 4px !important;
+
+      .btn-yellow__text {
+        flex-grow: 1;
+        text-align: center;
+      }
     }
   }
 
@@ -26057,7 +26104,8 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   .fv-desc-box--sp       { display: flex; }   // inherits .fv-desc-box flex layout
 
   // ---- Section container ----
-  .fv-section {
+  .fv-section,
+  .topics-section {
     background-image: url('../../assets/img/bkg/WF/bg_texture_sp.png');
   }
 
@@ -26189,8 +26237,8 @@ $font-zarame:  'Zarame Gothic', sans-serif;
     top: 50%;
     transform: translateY(-50%);
 
-    &-left  { left: calc(100% - 6px); right: auto; text-align: left; }
-    &-right { right: calc(100% - 6px); left: auto; text-align: right; }
+    &-left  { left: 100%; right: auto; top: calc(50% + 14px); text-align: left; }
+    &-right { right: calc(100% - 5px); left: auto; top: calc(50% + 21px); text-align: right; }
   }
 
   // ---- Decorative elements ----
