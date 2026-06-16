@@ -24206,8 +24206,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   transition: opacity 0.2s ease-in, background 0.2s ease-in, border-color 0.2s ease-in, box-shadow 0.2s ease-in;
 
   &:hover {
-    background: #FBDC93;
-    border-color: #FBDC93;
+    border-color: $ai-yellow;
     box-shadow: 0 0 0 0 #FBDC93;
   }
 
@@ -24482,8 +24481,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   transition: opacity 0.2s ease-in, background 0.2s ease-in, border-color 0.2s ease-in, box-shadow 0.2s ease-in;
 
   &:hover {
-    background: #FBDC93;
-    border-color: #FBDC93;
+    border-color: $ai-yellow;
     box-shadow: 0 0 0 0 #FBDC93;
   }
 
@@ -25063,9 +25061,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   transition: opacity 0.2s ease-in, background 0.2s ease-in, border-color 0.2s ease-in, box-shadow 0.2s ease-in;
 
   &:hover {
-    opacity: 0.8;
-    background: #FBDC93;
-    border-color: #FBDC93;
+    border-color: $ai-yellow;
     box-shadow: 0 0 0 0 #FBDC93;
   }
 }
