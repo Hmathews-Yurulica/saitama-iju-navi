@@ -340,49 +340,46 @@ jQuery(function ($) {
 	});
 
 	// アンカースクロール（ヘッダー高さ考慮）
-	function scrollToTarget(speed) {
-		const $anchors           = $('a[href^="#"]:not(a[href^="#modal"])');
-		const headerHeight       = $('#js-header').height();
-		const headerWrapperHeight = $('#js-header-wrapper').height();
-		let translateYNumber     = 0;
-		const transformValue     = $('.global-nav').css('transform');
-		if (transformValue !== 'none') {
-			translateYNumber = parseInt(transformValue.match(/matrix.*\,\s*(-?\d+)/)[1]);
+	$(document).on('click', 'a[href^="#"]:not([href^="#modal"])', function (event) {
+		const href = $(this).attr('href');
+		const $target = $(href === '#' ? 'html' : href);
+		if (href !== '#' && !$target.length) { return; }
+
+		event.preventDefault();
+
+		const headerHeight        = $('#js-header').height() || 0;
+		const headerWrapperHeight = $('#js-header-wrapper').height() || 0;
+		let translateYNumber      = 0;
+		const transformValue      = $('.global-nav').css('transform');
+		if (transformValue && transformValue !== 'none') {
+			const match = transformValue.match(/matrix.*,\s*(-?\d+(?:\.\d+)?)\)$/);
+			if (match) { translateYNumber = parseFloat(match[1]); }
 		}
 		const apparentHeight = headerWrapperHeight - (-translateYNumber);
 
-		$anchors.on('click', function (event) {
-			event.preventDefault();
-			const href = $(this).attr('href');
+		if (href === '#') {
+			$('body,html').animate({ scrollTop: 0 }, 800, 'swing');
+			return;
+		}
 
-			if (href === '#') {
-				$('body,html').animate({ scrollTop: 0 }, speed, 'swing');
-			} else {
-				const $target     = $(href);
-				const targetOffset = $target.offset().top;
-				let position       = targetOffset;
+		const targetOffset = $target.offset().top;
+		let position = targetOffset;
 
-				if (window.innerWidth > 1100 && $(window).scrollTop() > targetOffset) {
-					position = targetOffset - apparentHeight;
-				} else if (window.innerWidth > 767 && window.innerWidth <= 1100 && $(window).scrollTop() > targetOffset) {
-					position = targetOffset;
-				} else {
-					position = targetOffset - headerHeight;
-				}
+		if (window.innerWidth > 1100 && $(window).scrollTop() > targetOffset) {
+			position = targetOffset - apparentHeight;
+		} else if (window.innerWidth > 767 && window.innerWidth <= 1100 && $(window).scrollTop() > targetOffset) {
+			position = targetOffset;
+		} else {
+			position = targetOffset - headerHeight;
+		}
 
-				$('body,html').animate({ scrollTop: position }, speed, 'swing', function () {
-					if (href !== '#' && $target.length) {
-						if (!$target.is(':focusable')) {
-							$target.attr('tabindex', '-1');
-						}
-						$target.focus();
-					}
-				});
+		$('body,html').animate({ scrollTop: position }, 800, 'swing', function () {
+			if (!$target.is(':focusable')) {
+				$target.attr('tabindex', '-1');
 			}
+			$target.focus();
 		});
-	}
-
-	scrollToTarget(800);
+	});
 
 	// ハッシュ付き URL でのヘッダー調整
 	if (window.location.hash) {
