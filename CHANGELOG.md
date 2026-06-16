@@ -14,6 +14,29 @@
 
 ---
 
+## [0.6.0] - 2026-06-16
+
+### 追加
+- FAQ カテゴリタブのホバー時に黄色アンダーラインが左から右へ伸びるアニメーション（0.2s ease-out）
+- FAQ タブラベルを `<span class="faq-cat-tab__label">` でラップし、アンダーラインをテキスト幅に揃える
+- `topics-section` に FV と同じ背景テクスチャ画像（PC: `bg_texture_pc.png` / SP: `bg_texture_sp.png`）を適用
+- `btn-yellow has-icon` のテキストを `<span class="btn-yellow__text">` でラップし、SP で `flex-grow: 1` + `text-align: center` を適用
+- `aisupport-mascot` の left 位置を 992px〜1200px 間で流動補間（15px → 100px）
+- `.aisupport-section .sec-heading-group` の margin-left を 992px〜1200px 間で流動補間（60px → 0px）
+
+### 変更
+- アンカースクロールを jQuery animate から CSS `scroll-behavior: smooth` + `scroll-padding-top` に変更（全ブラウザで確実に動作）
+- `script.js` のアンカースクロール処理を削除し、CSS のみで実装
+- コピーツールチップの表示位置を `.faq-q-text` からコピーボタン上部に変更
+- FV デコ要素（`.fv-deco`）の z-index を 1 に設定し、主要コンテンツ（blob・description・mascot: 2、buttons: 3）より背面に配置
+- `faq-row` の区切り線を `1px dashed rgba(green, 0.4)` から `2px solid #fff` に変更
+- `faq-cat-tab--active` のボーダーを上・下・左のみ `2px solid #36bc87` に変更し、直後のタブの上ボーダーを非表示に
+- `fv-disclaimer-line` を `2px dashed #FFCC52`（黄色破線）に変更
+- `step-item__text` の SP フォントサイズを `clamp(1px, calc((100vw - 110px) / 20), 14px)` に変更（20文字が常に1行に収まるよう調整）
+- `.fv-main-title p` の `text-shadow` を `0.156vw 0.156vw 0px rgba(0,0,0,0.25)` に変更し、文字サイズに比例してスケール
+
+---
+
 ## [0.5.0] - 2026-06-12
 
 ### 変更
