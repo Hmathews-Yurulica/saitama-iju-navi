@@ -11,6 +11,7 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 .idea/
+.claude/
 
 # SCSS コンパイル用キャッシュ・生成物
 .sass-cache/

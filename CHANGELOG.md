@@ -14,6 +14,20 @@
 
 ---
 
+## [0.7.0] - 2026-06-16
+
+### 追加
+- `.aisupport-chat__window` を `__window-wrap` でラップし、SP で `transform: scale()` により内部要素（テキスト・画像含む）を画面幅に応じて均一スケーリング（最大サイズは PC 表示と同一）
+- `.fv-button` / `.btn-yellow` / `.faq-copy-btn` に `box-shadow`（下方向のドロップシャドウ、ボーダーと同色）を追加し、ホバー時に `0px` まで縮小するアニメーションを実装
+
+### 変更
+- `.fv-button` / `.btn-yellow` ホバー時の背景色・ボーダー色を `#FBDC93` に変更
+- `.fv-button` / `.btn-yellow` の `border-bottom` を常時 2px・`margin-bottom: 2px` に固定（ホバー時の可変だったボーダー幅を廃止し `box-shadow` で表現）
+- `.faq-copy-btn` のボーダーを 1px・`margin-bottom: 1px`・シャドウ 1px に変更（他ボタンと同じ表現をスケールダウンして適用）
+- 上記ボタン群のトランジションを `0.2s ease-in` に統一（opacity・background・border-color・box-shadow）
+
+---
+
 ## [0.6.0] - 2026-06-16
 
 ### 追加

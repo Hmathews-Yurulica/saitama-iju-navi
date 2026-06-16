@@ -24191,7 +24191,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   border-top: 2px solid $ai-border-dark;
   border-left: 2px solid $ai-border-dark;
   border-right: 2px solid $ai-border-dark;
-  border-bottom: 4px solid $ai-border-dark;
+  border-bottom: 2px solid $ai-border-dark;
   border-radius: 40px;
   padding: 20px 24px;
   display: flex;
@@ -24199,11 +24199,17 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   justify-content: center;
   flex-shrink: 0;
   width: 288px;
+  margin-bottom: 2px;
   text-decoration: none;
   cursor: pointer;
-  transition: opacity 0.2s;
+  box-shadow: 0 2px 0 0 $ai-border-dark;
+  transition: opacity 0.2s ease-in, background 0.2s ease-in, border-color 0.2s ease-in, box-shadow 0.2s ease-in;
 
-  &:hover { opacity: 0.6; }
+  &:hover {
+    background: #FBDC93;
+    border-color: #FBDC93;
+    box-shadow: 0 0 0 0 #FBDC93;
+  }
 
   &:last-child { width: 285px; }
 
@@ -24458,7 +24464,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   border-top: 2px solid $ai-border-dark;
   border-left: 2px solid $ai-border-dark;
   border-right: 2px solid $ai-border-dark;
-  border-bottom: 4px solid $ai-border-dark;
+  border-bottom: 2px solid $ai-border-dark;
   border-radius: 40px;
   padding: 20px 24px;
   font-family: $font-kiwi;
@@ -24471,9 +24477,15 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   text-decoration: none;
   cursor: pointer;
   gap: 8px;
-  transition: opacity 0.2s;
+  margin-bottom: 2px;
+  box-shadow: 0 2px 0 0 $ai-border-dark;
+  transition: opacity 0.2s ease-in, background 0.2s ease-in, border-color 0.2s ease-in, box-shadow 0.2s ease-in;
 
-  &:hover { opacity: 0.85; }
+  &:hover {
+    background: #FBDC93;
+    border-color: #FBDC93;
+    box-shadow: 0 0 0 0 #FBDC93;
+  }
 
   &.has-icon{
     padding: 6px 24px;
@@ -24608,6 +24620,10 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   gap: 0;
   align-items: center;
   flex-shrink: 0;
+
+  &__window-wrap {
+    position: relative;
+  }
 
   &__window {
     width: 338px;
@@ -25030,7 +25046,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   border-top: 1px solid $ai-border-dark;
   border-left: 1px solid $ai-border-dark;
   border-right: 1px solid $ai-border-dark;
-  border-bottom: 2px solid $ai-border-dark;
+  border-bottom: 1px solid $ai-border-dark;
   border-radius: 104px;
   padding: 2px 16px 4px;
   font-family: $font-kiwi;
@@ -25042,9 +25058,16 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   white-space: nowrap;
   cursor: pointer;
   flex-shrink: 0;
-  transition: opacity 0.2s;
+  margin-bottom: 1px;
+  box-shadow: 0 1px 0 0 $ai-border-dark;
+  transition: opacity 0.2s ease-in, background 0.2s ease-in, border-color 0.2s ease-in, box-shadow 0.2s ease-in;
 
-  &:hover { opacity: 0.8; }
+  &:hover {
+    opacity: 0.8;
+    background: #FBDC93;
+    border-color: #FBDC93;
+    box-shadow: 0 0 0 0 #FBDC93;
+  }
 }
 
 .faq-q-text {
@@ -25684,10 +25707,17 @@ $font-zarame:  'Zarame Gothic', sans-serif;
     align-items: center;
     gap: 0;
 
+    &__window-wrap {
+      width: min(calc(100vw - 40px), 338px);
+      height: min(calc((100vw - 40px) * 464 / 338), 464px);
+      overflow: hidden;
+    }
+
     &__window {
-      width: 100%;
-      max-width: 338px;
-      height: 429px;
+      width: 338px;
+      height: 464px;
+      transform-origin: top left;
+      transform: scale(min(calc((100vw - 40px) / 338px), 1));
     }
   }
 
