@@ -21,3 +21,5 @@ assets/css/style.css
 # node（ツール類を使う場合）
 node_modules/
 .vercel
+.firebase/
+saitama-ai-concierge/
