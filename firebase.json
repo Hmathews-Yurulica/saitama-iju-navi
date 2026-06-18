@@ -2,6 +2,7 @@
   "hosting": {
     "site": "saitama-ai-concierge",
     "public": ".",
+    "predeploy": ["npm run sass:build"],
     "ignore": [
       "firebase.json",
       ".firebaserc",

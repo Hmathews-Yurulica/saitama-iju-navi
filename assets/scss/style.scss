@@ -7020,7 +7020,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   border-right: 2px solid $ai-border-dark;
   border-bottom: 2px solid $ai-border-dark;
   border-radius: 40px;
-  padding: 20px 24px;
+  padding: 14px 24px;
   font-family: $font-kiwi;
   font-weight: 500;
   font-size: 20px;
@@ -8469,20 +8469,35 @@ $font-zarame:  'Zarame Gothic', sans-serif;
     &:first-child,
     &:last-child { border-radius: 0; }
 
-    /* アクティブタブ*/
+    /* アクティブタブ：奇数（左列）= 下・右にグリーン（幅はそのまま） */
     &--active {
       background: $ai-bg-cream;
       color: $ai-text;
-      border-color: $ai-green;
-      border-right: 1px solid $ai-green;
       border-bottom: 2px solid $ai-green;
+      border-right: 1px solid $ai-green;
+      border-left: none;
 
+      /* アクティブタブ：偶数（右列）= 下・左にグリーン（幅はそのまま） */
       &:nth-child(even) {
         border-right: none;
         border-left: 1px solid $ai-green;
-        border-bottom: 2px solid $ai-green;
       }
     }
+  }
+
+  /* アクティブタブの真上のタブ（2つ前）の下ボーダーをグリーンに */
+  .faq-cat-tab:has(+ .faq-cat-tab + .faq-cat-tab--active) {
+    border-bottom: 2px solid $ai-green;
+  }
+
+  /* 奇数アクティブの右隣タブ：左ボーダーをグリーンに（幅はそのまま） */
+  .faq-cat-tab--active:nth-child(odd) + .faq-cat-tab {
+    border-left: 1px solid $ai-green;
+  }
+
+  /* 偶数アクティブの左隣タブ：右ボーダーをグリーンに（幅はそのまま） */
+  .faq-cat-tab:has(+ .faq-cat-tab--active:nth-child(even)) {
+    border-right: 1px solid $ai-green;
   }
 
   /* コンテンツエリア: タブの下に全幅で表示*/
