@@ -1,4 +1,4 @@
-
+@charset "UTF-8";
 /* ============================================================*/
 /* 住むなら埼玉 — メインスタイルシート*/
 /* ※既存ファイルに直接追記せず、新規ファイルを作成して @use で読み込む*/
@@ -18,7 +18,6 @@ $inner-width: 1240px;
 *::after {
   box-sizing: border-box;
 }
-@charset "UTF-8";
 /* Document
  * ========================================================================== */
 /**
@@ -5350,7 +5349,7 @@ input:checked + span::after {
     width: 16px;
     height: 10px;
     margin-left: 8px;
-    line-height: 1em;
+    line-height: 1;
     display: inline-block;
   }
 
@@ -6592,7 +6591,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 
 @font-face {
   font-family: 'Zarame Gothic';
-  src: url('../fonts/ざらめゴシック.ttf') format('truetype');
+  src: url('../fonts/zarame-gothic.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -6607,7 +6606,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   width: 100%;
   font-family: $font-kiwi;
   background-color: $ai-bg-cream;
-  background-image: url('../../assets/img/bkg/WF/bg_texture_pc.png');
+  background-image: url('../../assets/img/bkg/bg-texture-pc.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -7027,7 +7026,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   font-size: 20px;
   color: $ai-text;
   letter-spacing: 0.8px;
-  line-height: 1.6rem;
+  line-height: 1.6;
   white-space: nowrap;
   text-decoration: none;
   cursor: pointer;
@@ -7284,7 +7283,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
 
 .topics-section {
   background-color: $ai-bg-cream;
-  background-image: url('../../assets/img/bkg/WF/bg_texture_pc.png');
+  background-image: url('../../assets/img/bkg/bg-texture-pc.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -8728,7 +8727,7 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   /* ---- Section container ----*/
   .fv-section,
   .topics-section {
-    background-image: url('../../assets/img/bkg/WF/bg_texture_sp.png');
+    background-image: url('../../assets/img/bkg/bg-texture-sp.png');
   }
 
   /* ---- Background texture ----*/
@@ -8906,3 +8905,49 @@ $font-zarame:  'Zarame Gothic', sans-serif;
   }
 
 } /* end @media (max-width: 540px)*/
+
+/* ============================================================*/
+/* インラインスタイル置き換えクラス*/
+/* ============================================================*/
+
+/* steps セクション：ボタン縦積みグループ*/
+.steps-btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+/* btn-yellow の幅固定バリアント（チャット起動ボタン）*/
+.btn-yellow--wide {
+  padding-left: 8px;
+  width: 288px;
+  box-sizing: border-box;
+}
+
+/* steps セクション：チャット注釈テキスト*/
+.steps-chat-note {
+  font-family: 'Kiwi Maru', serif;
+  font-size: 14px;
+  color: #fff;
+  letter-spacing: 0.56px;
+  margin: 0;
+}
+
+/* 見出しグループ：左揃えバリアント（FAQ セクション）*/
+.sec-heading-group__inner--left {
+  align-items: flex-start;
+}
+
+.sec-heading-group__title-wrap--left {
+  align-items: flex-start;
+}
+
+/* sec-h2・sec-lead の左揃えバリアント*/
+.sec-h2--left {
+  text-align: left;
+}
+
+.sec-lead--left {
+  text-align: left;
+}
