@@ -1,4 +1,5 @@
 const { onRequest } = require('firebase-functions/v2/https');
+const express = require('express');
 const fs = require('fs');
 const path = require('path');
 
@@ -33,11 +34,7 @@ const LOGIN_HTML = `<!DOCTYPE html>
       flex-direction: column;
       gap: 16px;
     }
-    .note {
-      font-size: 14px;
-      color: #666;
-      text-align: center;
-    }
+    .note { font-size: 14px; color: #666; text-align: center; }
     input {
       border: 1px solid #ddd;
       border-radius: 8px;
@@ -47,12 +44,7 @@ const LOGIN_HTML = `<!DOCTYPE html>
       outline: none;
     }
     input:focus { border-color: #36bc87; }
-    .error {
-      font-size: 13px;
-      color: #e53935;
-      text-align: center;
-      display: none;
-    }
+    .error { font-size: 13px; color: #e53935; text-align: center; display: none; }
     .error.visible { display: block; }
     button {
       background: #36bc87;
@@ -83,41 +75,35 @@ const LOGIN_HTML = `<!DOCTYPE html>
 </body>
 </html>`;
 
-exports.basicAuth = onRequest({ region: 'asia-northeast1' }, (req, res) => {
+const app = express();
+app.use(express.urlencoded({ extended: false }));
+
+app.get('*', (req, res) => {
   const cookies = parseCookies(req.headers.cookie || '');
-
-  if (req.method === 'POST') {
-    const body = parseBody(req.body);
-    if (body.id === USER && body.pw === PASS) {
-      res.set('Set-Cookie', `${COOKIE_NAME}=${COOKIE_VALUE}; Path=/; HttpOnly; Secure; SameSite=Strict`);
-      return res.redirect(302, '/');
-    }
-    res.status(401).send(LOGIN_HTML.replace('{{ERROR_CLASS}}', ' visible'));
-    return;
-  }
-
   if (cookies[COOKIE_NAME] === COOKIE_VALUE) {
     const html = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
     res.set('Content-Type', 'text/html; charset=utf-8');
     return res.send(html);
   }
+  res.send(LOGIN_HTML.replace('{{ERROR_CLASS}}', ''));
+});
 
-  res.status(200).send(LOGIN_HTML.replace('{{ERROR_CLASS}}', ''));
+app.post('*', (req, res) => {
+  const { id, pw } = req.body;
+  if (id === USER && pw === PASS) {
+    res.set('Set-Cookie', `${COOKIE_NAME}=${COOKIE_VALUE}; Path=/; HttpOnly; Secure; SameSite=Strict`);
+    return res.redirect(302, '/');
+  }
+  res.status(401).send(LOGIN_HTML.replace('{{ERROR_CLASS}}', ' visible'));
 });
 
 function parseCookies(header) {
   return Object.fromEntries(
-    header.split(';').map(c => c.trim().split('=').map(s => s.trim()))
+    header.split(';')
+      .map(c => c.trim().split('='))
       .filter(([k]) => k)
+      .map(([k, ...v]) => [k.trim(), v.join('=').trim()])
   );
 }
 
-function parseBody(body) {
-  if (typeof body === 'object' && body !== null) return body;
-  if (typeof body === 'string') {
-    return Object.fromEntries(
-      body.split('&').map(p => p.split('=').map(decodeURIComponent))
-    );
-  }
-  return {};
-}
+exports.basicAuth = onRequest({ region: 'asia-northeast1' }, app);
