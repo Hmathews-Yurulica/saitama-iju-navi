@@ -1036,11 +1036,42 @@
                     81.82% { opacity: 1; width: 304.06px; height: 100px; animation-timing-function: linear; }
                     100%   { opacity: 0; width: 304.06px; height: 100px; }
                 }
+                #chatbot {
+                    max-height: calc(100vh - 32px) !important;
+                }
+                #chatbot-body {
+                    height: calc(100% - 45px) !important;
+                }
                 #chatbot.is-opening {
                     animation: chatbot-open 0.55s linear forwards;
                 }
                 #chatbot.is-closing {
                     animation: chatbot-close 0.55s linear forwards;
+                }
+                @media (max-width: 540px) {
+                    #chatbot {
+                        left: 10px !important;
+                        right: auto !important;
+                        bottom: 16px !important;
+                    }
+                    @keyframes chatbot-open-sp {
+                        0%     { opacity: 0; width: calc(100vw - 20px); height: 100px; animation-timing-function: linear; }
+                        36.36% { opacity: 1; width: calc(100vw - 20px); height: 100px; animation-timing-function: steps(1); }
+                        63.64% { opacity: 1; width: calc(100vw - 20px); height: 100px; animation-timing-function: ease-in; }
+                        100%   { opacity: 1; width: calc(100vw - 20px); height: calc(100vh - 26px); }
+                    }
+                    @keyframes chatbot-close-sp {
+                        0%     { opacity: 1; width: calc(100vw - 20px); height: calc(100vh - 26px); animation-timing-function: steps(1); }
+                        45.45% { opacity: 1; width: calc(100vw - 20px); height: calc(100vh - 26px); animation-timing-function: ease-out; }
+                        81.82% { opacity: 1; width: calc(100vw - 20px); height: 100px; animation-timing-function: linear; }
+                        100%   { opacity: 0; width: calc(100vw - 20px); height: 100px; }
+                    }
+                    #chatbot.is-opening {
+                        animation: chatbot-open-sp 0.55s linear forwards !important;
+                    }
+                    #chatbot.is-closing {
+                        animation: chatbot-close-sp 0.55s linear forwards !important;
+                    }
                 }
             `;
             document.head.appendChild(style);
