@@ -78,23 +78,25 @@ const LOGIN_HTML = `<!DOCTYPE html>
 const app = express();
 app.use(express.urlencoded({ extended: false }));
 
-app.get('*', (req, res) => {
+app.use((req, res) => {
   const cookies = parseCookies(req.headers.cookie || '');
+
+  if (req.method === 'POST') {
+    const { id, pw } = req.body;
+    if (id === USER && pw === PASS) {
+      res.set('Set-Cookie', `${COOKIE_NAME}=${COOKIE_VALUE}; Path=/; HttpOnly; Secure; SameSite=Strict`);
+      return res.redirect(302, '/');
+    }
+    return res.status(401).send(LOGIN_HTML.replace('{{ERROR_CLASS}}', ' visible'));
+  }
+
   if (cookies[COOKIE_NAME] === COOKIE_VALUE) {
     const html = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
     res.set('Content-Type', 'text/html; charset=utf-8');
     return res.send(html);
   }
-  res.send(LOGIN_HTML.replace('{{ERROR_CLASS}}', ''));
-});
 
-app.post('*', (req, res) => {
-  const { id, pw } = req.body;
-  if (id === USER && pw === PASS) {
-    res.set('Set-Cookie', `${COOKIE_NAME}=${COOKIE_VALUE}; Path=/; HttpOnly; Secure; SameSite=Strict`);
-    return res.redirect(302, '/');
-  }
-  res.status(401).send(LOGIN_HTML.replace('{{ERROR_CLASS}}', ' visible'));
+  res.send(LOGIN_HTML.replace('{{ERROR_CLASS}}', ''));
 });
 
 function parseCookies(header) {
