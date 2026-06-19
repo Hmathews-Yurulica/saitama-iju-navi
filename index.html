@@ -308,7 +308,7 @@
       <!-- Buttons -->
       <div class="fv-buttons">
         <div class="fv-btn-row">
-          <a href="#chat" class="fv-button"><span class="fv-button-text">いますぐ相談する</span></a>
+          <a href="#" class="fv-button chatButton"><span class="fv-button-text">いますぐ相談する</span></a>
           <a href="#faq" class="fv-button"><span class="fv-button-text">よくある質問を見てみる</span></a>
         </div>
         <div class="fv-disclaimer">
@@ -498,7 +498,7 @@
           <div class="steps-btns">
             <a href="#faq" class="btn-yellow">よくある質問を見てみる</a>
             <div class="steps-btn-group">
-              <a href="#chat" class="btn-yellow has-icon btn-yellow--wide">
+              <a href="#" class="btn-yellow has-icon btn-yellow--wide chatButton">
                 <span class="btn-yellow__icon"><img src="assets/img/01_svg/ai-concierge-img.svg" alt=""></span>
                 <span class="btn-yellow__text">さっそく試してみる</span>
               </a>
@@ -717,7 +717,7 @@
               <p class="cta-lead">埼玉への住み替え・暮らしについて、AIコンシェルジュが今すぐお答えします。</p>
             </div>
             <div class="cta-btn-wrap">
-              <a href="#chat" class="btn-yellow has-icon btn-yellow--wide">
+              <a href="#" class="btn-yellow has-icon btn-yellow--wide chatButton">
                 <span class="btn-yellow__icon"><img src="assets/img/01_svg/ai-concierge-img.svg" alt=""></span>
                 <span class="btn-yellow__text">さっそく試してみる</span>
               </a>
@@ -735,7 +735,7 @@
   </main>
 
   <!-- ==================== FLOATING CTA BANNER ==================== -->
-  <a href="#chat" class="fv-floating-banner">
+  <a href="#" class="fv-floating-banner" id="chatbot-toggle_button">
     <div class="fv-floating-banner__card">
       <div class="fv-floating-banner__content">
         <div class="fv-floating-banner__icon">
@@ -849,6 +849,191 @@
 
   <script src="assets/js/plugins.js"></script>
   <script src="assets/js/script.js"></script>
+  <script>
+        // CSSとアイコンのリンクを追加する関数
+        function addStylesheet(href) {
+            let link = document.createElement('link');
+            link.href = href;
+            link.rel = 'stylesheet';
+            document.head.appendChild(link);
+        }
+
+        // チャットボックスのヘッダーを作成する関数
+        function createChatboxHeader() {
+            const header = document.createElement('div');
+            header.id = 'chatbot-header';
+            header.style.background = 'white';
+            header.style.transition = 'background 0.2s ease-in';
+            header.style.borderRadius = '14px 14px 0 0';
+            header.style.overflow = 'hidden';
+            const logo = document.createElement('div');
+            logo.id = 'chatbot-logo';
+            logo.innerText = '【埼玉県公式】「住むなら埼玉」AI相談';
+            const closeIcon = document.createElement('i');
+            closeIcon.id = 'chatbot-close-icon';
+            closeIcon.className = 'material-icons material-symbols-outlined waves-light';
+            closeIcon.innerText = 'close';
+            closeIcon.addEventListener('click', event => {
+              event.preventDefault();
+              toggleChatbox();
+            });
+            header.appendChild(logo);
+            header.appendChild(closeIcon);
+            return header;
+        }
+
+        // チャットボックスを作成し、追加する関数
+        function createChatbox() {
+            const chatbox = document.createElement('div');
+            chatbox.id = 'chatbot';
+            chatbox.style.display = 'none';
+            chatbox.style.position = 'fixed';
+            chatbox.style.right = '17px';
+            chatbox.style.bottom = '17px';
+            chatbox.style.background = 'rgb(31, 161, 109)';
+            chatbox.style.padding = '6px 6px 26px 6px';
+            chatbox.style.borderRadius = '20px';
+            chatbox.style.overflow = 'hidden';
+
+            const header = createChatboxHeader();
+            const body = document.createElement('div');
+            body.id = 'chatbot-body';
+            body.style.background = 'white';
+            body.style.transition = 'background 0.2s ease-in';
+            body.style.borderRadius = '0 0 14px 14px';
+            body.style.overflow = 'hidden';
+            const iframe = document.createElement('iframe');
+            iframe.id = 'inline-frame';
+            iframe.width = '100%';
+            iframe.height = '100%';
+            iframe.dataSrc = 'https://miibo.jp/chat/399ac4b2-1a05-4ff6-ac6f-e23f5504278d19d7587ed44311?name=%E3%80%90%E5%9F%BC%E7%8E%89%E7%9C%8C%E5%85%AC%E5%BC%8F%E3%80%91%E3%80%8C%E4%BD%8F%E3%82%80%E3%81%AA%E3%82%89%E5%9F%BC%E7%8E%89%E3%80%8DAI%E7%9B%B8%E8%AB%87';
+            iframe.scrolling = 'no';
+            iframe.frameBorder = 'no';
+            body.appendChild(iframe);
+            chatbox.appendChild(header);
+            chatbox.appendChild(body);
+            document.body.appendChild(chatbox);
+        }
+
+        // チャットボックスの表示/非表示を切り替える関数
+        function toggleChatbox(utterance, ...states) {
+            var chatbox = document.getElementById('chatbot');
+            var iframe = document.getElementById('inline-frame');
+
+            // ここでイベントオブジェクトではなく、文字列または未定義の値が渡されることを確認します。
+            if (typeof utterance !== 'string') {
+                utterance = null;
+            }
+
+            if (chatbox.style.display === 'none' || utterance) {
+                chatbox.style.display = 'block';
+                chatbox.classList.remove('is-opening');
+                void chatbox.offsetWidth;
+                chatbox.classList.add('is-opening');
+                var chatHeader = document.getElementById('chatbot-header');
+                var chatBody = document.getElementById('chatbot-body');
+                chatHeader.style.background = 'white';
+                chatBody.style.background = 'white';
+                setTimeout(() => {
+                    chatHeader.style.background = '#36bc87';
+                    chatBody.style.background = 'white';
+                }, 350);
+                var src = 'https://miibo.jp/chat/399ac4b2-1a05-4ff6-ac6f-e23f5504278d19d7587ed44311?name=%E3%80%90%E5%9F%BC%E7%8E%89%E7%9C%8C%E5%85%AC%E5%BC%8F%E3%80%91%E3%80%8C%E4%BD%8F%E3%82%80%E3%81%AA%E3%82%89%E5%9F%BC%E7%8E%89%E3%80%8DAI%E7%9B%B8%E8%AB%87';
+                // 可変引数からクエリパラメータを生成
+                states.forEach(state => {
+                    if (state.key && state.value) {
+                        src += src.includes('?') ? '&' : '?';
+                        src += `${encodeURIComponent(state.key)}=${encodeURIComponent(state.value)}`;
+                    }
+                });
+
+                // 以下の条件を追加して、再読み込みの必要性をチェック
+                if (!iframeLoaded || (utterance && lastUtterance !== utterance)) {
+                    if (utterance) {
+                        src += src.includes('?') ? '&' : '?';
+                        src += "utterance=" + encodeURIComponent(utterance);
+                    }
+                    iframe.src = src;
+                    iframeLoaded = true;
+                    lastUtterance = utterance;
+                }
+            } else {
+                var chatHeader = document.getElementById('chatbot-header');
+                var chatBody = document.getElementById('chatbot-body');
+                chatHeader.style.background = 'white';
+                chatBody.style.background = 'white';
+                chatbox.classList.remove('is-opening');
+                void chatbox.offsetWidth;
+                chatbox.classList.add('is-closing');
+                setTimeout(() => {
+                    chatbox.style.display = 'none';
+                    chatbox.classList.remove('is-closing');
+                }, 550);
+            }
+        }
+        // イベントリスナーを設定する関数
+        function setupEventListeners() {
+            document.querySelectorAll('.chatButton').forEach(button => {
+                button.addEventListener('click', event => {
+                    event.preventDefault();
+                    const utterance = button.getAttribute('data-utterance');
+                    const statesData = button.getAttribute('data-states');
+                    let states = [];
+                    try {
+                        // JSON 形式の文字列をオブジェクトに変換
+                        const statesObj = JSON.parse(statesData);
+                        // オブジェクトから key-value ペアの配列を生成
+                        states = Object.keys(statesObj).map(key => ({ key, value: statesObj[key] }));
+                    } catch (e) {
+                        console.error("Error parsing states data", e);
+                    }
+
+                    toggleChatbox(utterance, ...states);
+                });
+            });
+        }
+
+        // チャットボックスのオープニングアニメーション
+        (function injectChatbotAnimation() {
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes chatbot-open {
+                    0%     { opacity: 0; width: 304.06px; height: 100px; animation-timing-function: linear; }
+                    36.36% { opacity: 1; width: 304.06px; height: 100px; animation-timing-function: steps(1); }
+                    63.64% { opacity: 1; width: 304.06px; height: 100px; animation-timing-function: ease-in; }
+                    100%   { opacity: 1; width: 654px; height: 994px; }
+                }
+                @keyframes chatbot-close {
+                    0%     { opacity: 1; width: 654px; height: 994px; animation-timing-function: ease-out; }
+                    36.36% { opacity: 1; width: 304.06px; height: 100px; animation-timing-function: steps(1); }
+                    63.64% { opacity: 1; width: 304.06px; height: 100px; animation-timing-function: linear; }
+                    100%   { opacity: 0; width: 304.06px; height: 100px; }
+                }
+                #chatbot.is-opening {
+                    animation: chatbot-open 0.55s linear forwards;
+                }
+                #chatbot.is-closing {
+                    animation: chatbot-close 0.55s linear forwards;
+                }
+            `;
+            document.head.appendChild(style);
+        })();
+
+        // メイン実行部
+        addStylesheet('https://fonts.googleapis.com/icon?family=Material+Icons');
+        addStylesheet('https://miibo.jp/chat3.css');
+        createChatbox();
+        setupEventListeners();
+
+        document.getElementById('chatbot-toggle_button').addEventListener('click', event => {
+            event.preventDefault();
+            toggleChatbox();
+        });
+
+        var iframeLoaded = false; // iframeがロードされたかどうかを追跡するフラグ
+        var lastUtterance = ""; // 最後に発話した内容を追跡するフラグ
+    </script>
+
 
 </body>
 </html>
