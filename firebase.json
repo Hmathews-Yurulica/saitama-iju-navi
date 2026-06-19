@@ -22,7 +22,8 @@
       "CHANGELOG.md",
       "README.md",
       "README.en.md",
-      "functions/**"
+      "functions/**",
+      "index.html"
     ],
     "headers": [
       {
