@@ -869,10 +869,12 @@
             const logo = document.createElement('div');
             logo.id = 'chatbot-logo';
             logo.innerText = '【埼玉県公式】「住むなら埼玉」AI相談';
+            logo.style.opacity = '0';
             const closeIcon = document.createElement('i');
             closeIcon.id = 'chatbot-close-icon';
             closeIcon.className = 'material-icons material-symbols-outlined waves-light';
             closeIcon.innerText = 'close';
+            closeIcon.style.opacity = '0';
             closeIcon.addEventListener('click', event => {
               event.preventDefault();
               toggleChatbox();
@@ -909,6 +911,7 @@
             iframe.dataSrc = 'https://miibo.jp/chat/399ac4b2-1a05-4ff6-ac6f-e23f5504278d19d7587ed44311?name=%E3%80%90%E5%9F%BC%E7%8E%89%E7%9C%8C%E5%85%AC%E5%BC%8F%E3%80%91%E3%80%8C%E4%BD%8F%E3%82%80%E3%81%AA%E3%82%89%E5%9F%BC%E7%8E%89%E3%80%8DAI%E7%9B%B8%E8%AB%87';
             iframe.scrolling = 'no';
             iframe.frameBorder = 'no';
+            iframe.style.opacity = '0';
             body.appendChild(iframe);
             chatbox.appendChild(header);
             chatbox.appendChild(body);
@@ -932,11 +935,26 @@
                 chatbox.classList.add('is-opening');
                 var chatHeader = document.getElementById('chatbot-header');
                 var chatBody = document.getElementById('chatbot-body');
+                var chatLogo = document.getElementById('chatbot-logo');
+                var chatCloseIcon = document.getElementById('chatbot-close-icon');
+                var chatIframe = document.getElementById('inline-frame');
+                chatHeader.style.transition = 'none';
                 chatHeader.style.background = 'white';
-                chatBody.style.background = 'white';
+                chatLogo.style.transition = 'none';
+                chatLogo.style.opacity = '0';
+                chatCloseIcon.style.transition = 'none';
+                chatCloseIcon.style.opacity = '0';
+                chatIframe.style.transition = 'none';
+                chatIframe.style.opacity = '0';
                 setTimeout(() => {
+                    chatHeader.style.transition = 'background 0.2s ease-in';
                     chatHeader.style.background = '#36bc87';
-                    chatBody.style.background = 'white';
+                    chatLogo.style.transition = 'opacity 0.2s ease-in';
+                    chatLogo.style.opacity = '1';
+                    chatCloseIcon.style.transition = 'opacity 0.2s ease-in';
+                    chatCloseIcon.style.opacity = '1';
+                    chatIframe.style.transition = 'opacity 0.2s ease-in';
+                    chatIframe.style.opacity = '1';
                 }, 350);
                 var src = 'https://miibo.jp/chat/399ac4b2-1a05-4ff6-ac6f-e23f5504278d19d7587ed44311?name=%E3%80%90%E5%9F%BC%E7%8E%89%E7%9C%8C%E5%85%AC%E5%BC%8F%E3%80%91%E3%80%8C%E4%BD%8F%E3%82%80%E3%81%AA%E3%82%89%E5%9F%BC%E7%8E%89%E3%80%8DAI%E7%9B%B8%E8%AB%87';
                 // 可変引数からクエリパラメータを生成
@@ -960,8 +978,17 @@
             } else {
                 var chatHeader = document.getElementById('chatbot-header');
                 var chatBody = document.getElementById('chatbot-body');
+                var chatLogo = document.getElementById('chatbot-logo');
+                var chatCloseIcon = document.getElementById('chatbot-close-icon');
+                var chatIframe = document.getElementById('inline-frame');
+                chatHeader.style.transition = 'background 0.25s ease-in';
                 chatHeader.style.background = 'white';
-                chatBody.style.background = 'white';
+                chatLogo.style.transition = 'opacity 0.25s ease-in';
+                chatLogo.style.opacity = '0';
+                chatCloseIcon.style.transition = 'opacity 0.25s ease-in';
+                chatCloseIcon.style.opacity = '0';
+                chatIframe.style.transition = 'opacity 0.25s ease-in';
+                chatIframe.style.opacity = '0';
                 chatbox.classList.remove('is-opening');
                 void chatbox.offsetWidth;
                 chatbox.classList.add('is-closing');
@@ -1004,9 +1031,9 @@
                     100%   { opacity: 1; width: 654px; height: 994px; }
                 }
                 @keyframes chatbot-close {
-                    0%     { opacity: 1; width: 654px; height: 994px; animation-timing-function: ease-out; }
-                    36.36% { opacity: 1; width: 304.06px; height: 100px; animation-timing-function: steps(1); }
-                    63.64% { opacity: 1; width: 304.06px; height: 100px; animation-timing-function: linear; }
+                    0%     { opacity: 1; width: 654px; height: 994px; animation-timing-function: steps(1); }
+                    45.45% { opacity: 1; width: 654px; height: 994px; animation-timing-function: ease-out; }
+                    81.82% { opacity: 1; width: 304.06px; height: 100px; animation-timing-function: linear; }
                     100%   { opacity: 0; width: 304.06px; height: 100px; }
                 }
                 #chatbot.is-opening {
