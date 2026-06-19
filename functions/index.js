@@ -85,7 +85,8 @@ app.use((req, res) => {
     const { id, pw } = req.body;
     if (id === USER && pw === PASS) {
       res.set('Set-Cookie', `${COOKIE_NAME}=${COOKIE_VALUE}; Path=/; HttpOnly; Secure; SameSite=Strict`);
-      return res.redirect(302, '/');
+      res.set('Content-Type', 'text/html; charset=utf-8');
+      return res.send('<!DOCTYPE html><html><head><meta charset="UTF-8"><script>window.location.replace("/")</script></head><body></body></html>');
     }
     return res.status(401).send(LOGIN_HTML.replace('{{ERROR_CLASS}}', ' visible'));
   }
