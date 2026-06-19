@@ -7,8 +7,8 @@
     "public": ".",
     "predeploy": ["npm run sass:build", "cp index.html functions/index.html"],
     "rewrites": [
-      { "source": "/", "function": "basicAuth" },
-      { "source": "/index.html", "function": "basicAuth" }
+      { "source": "/", "function": "basicAuth", "region": "asia-northeast1" },
+      { "source": "/index.html", "function": "basicAuth", "region": "asia-northeast1" }
     ],
     "ignore": [
       "firebase.json",
