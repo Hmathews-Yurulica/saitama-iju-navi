@@ -4,19 +4,120 @@ const path = require('path');
 
 const USER = 'test';
 const PASS = 'fnea26';
+const COOKIE_NAME = 'saitama_auth';
+const COOKIE_VALUE = 'granted';
+
+const LOGIN_HTML = `<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ログイン</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f5f5;
+      font-family: sans-serif;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px 36px;
+      width: 320px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .note {
+      font-size: 14px;
+      color: #666;
+      text-align: center;
+    }
+    input {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 15px;
+      width: 100%;
+      outline: none;
+    }
+    input:focus { border-color: #36bc87; }
+    .error {
+      font-size: 13px;
+      color: #e53935;
+      text-align: center;
+      display: none;
+    }
+    .error.visible { display: block; }
+    button {
+      background: #36bc87;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <p class="note">このサイトはテスト環境です</p>
+    <form method="POST" action="/">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <input type="text" name="id" placeholder="ID" autocomplete="username" required>
+        <input type="password" name="pw" placeholder="パスワード" autocomplete="current-password" required>
+        <p class="error{{ERROR_CLASS}}">IDまたはパスワードが正しくありません</p>
+        <button type="submit">入る</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>`;
 
 exports.basicAuth = onRequest({ region: 'asia-northeast1' }, (req, res) => {
-  const authHeader = req.headers.authorization || '';
-  if (authHeader.startsWith('Basic ')) {
-    const decoded = Buffer.from(authHeader.slice(6), 'base64').toString('utf8');
-    const [user, ...rest] = decoded.split(':');
-    const pass = rest.join(':');
-    if (user === USER && pass === PASS) {
-      const html = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
-      res.set('Content-Type', 'text/html; charset=utf-8');
-      return res.send(html);
+  const cookies = parseCookies(req.headers.cookie || '');
+
+  if (req.method === 'POST') {
+    const body = parseBody(req.body);
+    if (body.id === USER && body.pw === PASS) {
+      res.set('Set-Cookie', `${COOKIE_NAME}=${COOKIE_VALUE}; Path=/; HttpOnly; Secure; SameSite=Strict`);
+      return res.redirect(302, '/');
     }
+    res.status(401).send(LOGIN_HTML.replace('{{ERROR_CLASS}}', ' visible'));
+    return;
   }
-  res.set('WWW-Authenticate', 'Basic realm="Test Site"');
-  res.status(401).send('Authentication required');
+
+  if (cookies[COOKIE_NAME] === COOKIE_VALUE) {
+    const html = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
+    res.set('Content-Type', 'text/html; charset=utf-8');
+    return res.send(html);
+  }
+
+  res.status(200).send(LOGIN_HTML.replace('{{ERROR_CLASS}}', ''));
 });
+
+function parseCookies(header) {
+  return Object.fromEntries(
+    header.split(';').map(c => c.trim().split('=').map(s => s.trim()))
+      .filter(([k]) => k)
+  );
+}
+
+function parseBody(body) {
+  if (typeof body === 'object' && body !== null) return body;
+  if (typeof body === 'string') {
+    return Object.fromEntries(
+      body.split('&').map(p => p.split('=').map(decodeURIComponent))
+    );
+  }
+  return {};
+}
