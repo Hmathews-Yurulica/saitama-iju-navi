@@ -1,8 +1,15 @@
 {
+  "functions": {
+    "source": "functions"
+  },
   "hosting": {
     "site": "saitama-ai-concierge",
     "public": ".",
-    "predeploy": ["npm run sass:build"],
+    "predeploy": ["npm run sass:build", "cp index.html functions/index.html"],
+    "rewrites": [
+      { "source": "/", "function": "basicAuth" },
+      { "source": "/index.html", "function": "basicAuth" }
+    ],
     "ignore": [
       "firebase.json",
       ".firebaserc",
@@ -14,7 +21,8 @@
       "package-lock.json",
       "CHANGELOG.md",
       "README.md",
-      "README.en.md"
+      "README.en.md",
+      "functions/**"
     ],
     "headers": [
       {
