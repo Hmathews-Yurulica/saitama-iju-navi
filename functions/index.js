@@ -5,7 +5,7 @@ const path = require('path');
 
 const USER = 'test';
 const PASS = 'fnea26';
-const COOKIE_NAME = 'saitama_auth';
+const COOKIE_NAME = '__session';
 const COOKIE_VALUE = 'granted';
 
 const LOGIN_HTML = `<!DOCTYPE html>
@@ -78,26 +78,33 @@ const LOGIN_HTML = `<!DOCTYPE html>
 const app = express();
 app.use(express.urlencoded({ extended: false }));
 
-app.use((req, res) => {
+// Auth middleware: check cookie on GET, handle login on POST
+function authMiddleware(req, res, next) {
   const cookies = parseCookies(req.headers.cookie || '');
 
   if (req.method === 'POST') {
     const { id, pw } = req.body;
     if (id === USER && pw === PASS) {
-      res.set('Set-Cookie', `${COOKIE_NAME}=${COOKIE_VALUE}; Path=/; HttpOnly; Secure; SameSite=Strict`);
-      res.set('Content-Type', 'text/html; charset=utf-8');
-      return res.send('<!DOCTYPE html><html><head><meta charset="UTF-8"><script>window.location.replace("/")</script></head><body></body></html>');
+      res.set('Set-Cookie', `${COOKIE_NAME}=${COOKIE_VALUE}; Path=/; HttpOnly; Secure; SameSite=Lax`);
+      return res.redirect(302, '/index.html');
     }
     return res.status(401).send(LOGIN_HTML.replace('{{ERROR_CLASS}}', ' visible'));
   }
 
   if (cookies[COOKIE_NAME] === COOKIE_VALUE) {
-    const html = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
-    res.set('Content-Type', 'text/html; charset=utf-8');
-    return res.send(html);
+    return next();
   }
 
   res.send(LOGIN_HTML.replace('{{ERROR_CLASS}}', ''));
+}
+
+app.use(authMiddleware);
+
+// Serve index.html for authenticated requests
+app.get(['/', '/index.html'], (req, res) => {
+  const html = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
+  res.set('Content-Type', 'text/html; charset=utf-8');
+  res.send(html);
 });
 
 function parseCookies(header) {

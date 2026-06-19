@@ -9,6 +9,16 @@
 
 ## [未リリース]
 
+### 修正
+- `functions/index.js`: Cookie名を `saitama_auth` から `__session` に変更。Firebase HostingはCloud Runへのリクエスト転送時に `__session` 以外のCookieを除去するため、認証Cookie未検出によりログイン後も常にログインフォームが表示される問題を解消
+- `functions/index.js`: ログイン成功後のリダイレクト先を `/` から `/index.html` に変更
+- `functions/index.js`: 認証処理をExpressミドルウェア（`authMiddleware`）として分離し、ルートハンドラと明確に責務を分割
+- `functions/index.js`: `SameSite=Strict` を `SameSite=Lax` に変更し、リダイレクト時のCookie送信を保証
+
+---
+
+## [未リリース（旧）]
+
 ### 予定
 - AIチャットボットの実装（Anthropic Claude）
 
