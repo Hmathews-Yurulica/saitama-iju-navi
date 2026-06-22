@@ -9,6 +9,10 @@
 
 ## [未リリース]
 
+### 変更
+- `index.html`: FAQセクションの質問文を全カテゴリ（住まい・仕事・子育て・支援金・エリア選び・はじめての住み替え相談）にわたり更新し、より実態に即した表現に改訂
+- `index.html`: チャットボット開閉アニメーション（`chatbot-open` / `chatbot-close`）の展開幅を固定値 `654px` から `45%` に変更し、画面幅に応じたレスポンシブ対応を改善
+
 ### 修正
 - `functions/index.js`: Cookie名を `saitama_auth` から `__session` に変更。Firebase HostingはCloud Runへのリクエスト転送時に `__session` 以外のCookieを除去するため、認証Cookie未検出によりログイン後も常にログインフォームが表示される問題を解消
 - `functions/index.js`: ログイン成功後のリダイレクト先を `/` から `/index.html` に変更
